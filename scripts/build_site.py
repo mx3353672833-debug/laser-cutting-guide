@@ -69,7 +69,8 @@ for p in pages:
 <dialog class="search-dialog"><form method="dialog"><button class="close" aria-label="{'Close' if en else '关闭'}">×</button></form><label for="search-input">{'Search this guide' if en else '搜索章节与正文'}</label><input id="search-input" type="search" autocomplete="off" placeholder="{'Try kerf, units, pressure…' if en else '试试：补偿、单位、寻边…'}"><div class="search-results" aria-live="polite"></div></dialog>
 <dialog class="image-dialog"><form method="dialog"><button class="close" aria-label="{'Close image' if en else '关闭图片'}">×</button></form><img alt=""><p></p></dialog><script src="{url(Path('site/reader.js'))}" defer></script></body></html>'''
     target.write_text(html_page)
-    index.append({'title':title,'path':str(rel.with_suffix('.html')),'lang':lang,'text':soup.get_text(' ',strip=True)})
+    if 'learn' not in rel.parts:
+        index.append({'title':title,'path':str(rel.with_suffix('.html')),'lang':lang,'chapter':chapter is not None and rel.parts[0]=='docs','text':soup.get_text(' ',strip=True)})
 (OUT/'search-index.json').write_text(json.dumps(index,ensure_ascii=False))
 (OUT/'index.html').write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=docs/zh-CN/00-start-here.html"><title>Laser cutting guide</title><a href="docs/zh-CN/00-start-here.html">简体中文</a> · <a href="docs/en/00-start-here.html">English</a></html>')
 print(f'Built {len(pages)} pages in {OUT}')
