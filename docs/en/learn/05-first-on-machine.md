@@ -1,62 +1,41 @@
-# 05 · First on machine (memorize before you move)
+# 05 On the machine
 
 [简体中文](../../zh-CN/learn/05-first-on-machine.md) | [English](./05-first-on-machine.md)
 
-> Most people learn by watching, then try alone. This is **your safety checklist**, not a forever babysitter.  
-> Buttons differ per machine; **order follows that machine SOP / labels**.
+Buttons differ. Follow that machine’s SOP and the labels on the steel. This is the usual skeleton.
 
-## 60-second recite (do not cut until pass)
+## Six lines before you cut
 
-1. **Where is the e-stop?**  
-2. **Guard closed?**  
-3. **Exhaust on?**  
-4. **Chiller/gas alarms clear?**  
-5. **Software alarm bar empty?**  
-6. **If unsure → stop. Do not guess buttons.**
+1. E-stop is under your hand  
+2. Guard is closed  
+3. Exhaust is on  
+4. Chiller and gas are quiet  
+5. Software alarm bar is empty  
+6. If you are unsure, stop. Do not guess  
 
-## Safe first solo flow
+If you cannot recite these, do not cut.
 
-| # | Do | Success | Fail |
-|---|---|---|---|
-| 1 | Power on per SOP | panel normal | stop, read SOP |
-| 2 | **Home** | coordinates built | clear other alarms first |
-| 3 | Jog axes slowly | directions correct | e-stop |
-| 4 | Load plate, close guard | flat, closed | — |
-| 5 | **Find edge** (low tilt) | angle/zero | wrong size can crash |
-| 6 | Frame | pointer on stock | move |
-| 7 | Dry run | no crash | fix |
-| 8 | Cut first part with **site-verified row** | through | stop, log |
-| 9 | Measure + photo | data | do not batch |
+## First solo order
 
-![Find edge (official)](../../../assets/screenshots/bochu-cypcut/find-edge.png)
+Power on → home → slow jog → load plate and close guard → find edge → frame → dry run → cut the first part from a site-verified row → measure, photo, log.
 
-![Find edge steps (official)](../../../assets/screenshots/bochu-cypcut/find-edge-steps.png)
+![Find edge](../../../assets/screenshots/bochu-cypcut/find-edge.png)
 
-*Figures 05-1/05-2. Official notes: home first, correct sheet size, tilt ≲10°, head on plate.*
+![Find edge steps](../../../assets/screenshots/bochu-cypcut/find-edge-steps.png)
 
-## Where process numbers come from
+Bochu’s own notes: home first. Wrong sheet size crashes into the rack. Huge tilt is useless. Head must sit on the plate before find edge.
 
-1. Ask: is there a **verified row for this stock**?  
-2. Yes → copy the **whole row** (thickness, nozzle, gas, speed, power, pressure, focus).  
-3. No → **do not invent**; wait for a full row.  
-4. Log parameters + result after the cut.
+## Process numbers
 
-## If something goes wrong
+Ask if this stock already has a verified row. Copy the whole row: thickness, nozzle, gas, speed, power, pressure, focus.  
+If nobody has one, do not invent it.  
+After the cut, write down numbers and result.
 
-| Symptom | Do | Don’t |
-|---|---|---|
-| Red alarm | stop, copy text | reset spam |
-| Incomplete cut | stop, check nozzle/speed/row | endless extra pressure |
-| Wrong size | check kerf direction/units | change everything blind |
-| Noise/crash | **e-stop** | press start again |
+## When it goes wrong
 
-## Self-check
+Alarm: stop and copy the text. Stop spamming reset.  
+Incomplete cut: stop, check nozzle, speed, and whether you copied the right row.  
+Wrong size: check kerf direction and units first.  
+Noise or crash: e-stop.
 
-- [ ] Can recite the 60-second list  
-- [ ] Order: home → edge → frame → dry run → cut  
-- [ ] Process rows copied whole  
-- [ ] Alarm = stop  
-
-**Chain**: recite → home → edge → frame → dry run → verified row first cut → measure and log.
-
-Stuck? [00-stuck](00-stuck.md)
+Stuck: [stuck guide](00-stuck.md)

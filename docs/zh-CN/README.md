@@ -24,19 +24,15 @@
 | 15 | [从柏楚迁移到嘉强](15-raytools-migration.md) | 概念+待核 |
 
 
-## 从零自学（推荐先走这条）
+## 从零开始
 
-大多数人是在手机/电脑上看懂了，再去机上自己练。**先走自学主线**：
+先走这条。看懂了再上机自己练。
 
-1. [00 先懂这一个故事](learn/00-why-this-works.md) — 所以然
-2. [01 认界面（真实截图）](learn/01-ui-tour.md)
-3. [02 第一次导图](learn/02-first-import.md)
-4. [03 第一次工艺](learn/03-first-technique.md)
-5. [04 第一次检查](learn/04-first-precheck.md)
-6. [05 自己上机（安全清单）](learn/05-first-on-machine.md)
-7. [卡住手册](learn/00-stuck.md)
+[00 这活儿怎么干](learn/00-why-this-works.md) → [01 认屏幕](learn/01-ui-tour.md) → [02 导图](learn/02-first-import.md) → [03 工艺](learn/03-first-technique.md) → [04 检查](learn/04-first-precheck.md) → [05 上机](learn/05-first-on-machine.md)
 
-完整参考章节（00–15）在下方，可当手册查阅。
+卡了翻[这里](learn/00-stuck.md)。
+
+下面 00–15 是完整参考，当手册查。
 
 ## 附加文档
 

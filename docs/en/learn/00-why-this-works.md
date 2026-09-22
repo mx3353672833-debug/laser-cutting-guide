@@ -1,100 +1,78 @@
-# 00 · Why this works (the story first)
+# 00 What the job actually is
 
 [简体中文](../../zh-CN/learn/00-why-this-works.md) | [English](./00-why-this-works.md)
 
-> **For absolute beginners.** Readable on a phone. After this page you should be able to say what you are actually doing on the PC.
+For people who have never opened cutting software. Read this first.
 
----
+## One line
 
-## One sentence
+Fix the drawing and the order on the PC. Find the plate and dry-run on the machine. Cut one part. Measure.  
+Numbers always belong to this stock + this machine + this process row. Copy the row. Do not invent.
 
-> On the PC: shape → cut order → entry point → kerf offset → keep small parts from flying.  
-> Then on the machine: find the plate → dry-run the range → cut the first part → measure.  
-> **Every number is tied to this stock, this machine, this process row.**
+## Six steps
 
----
+![Official flow](../../../assets/screenshots/bochu-cypcut/flow-overview.png)
 
-## The 6-step map (official overview)
+That image is Bochu’s official overview. Walk it on your software:
 
-![CypCut operation flow (official)](../../../assets/screenshots/bochu-cypcut/flow-overview.png)
-
-*Figure · Source: Bochu official tutorial “Operation Flow”.*
-
-| Step | What you do | Skip it and… |
+| Step | Do | Skip and |
 |---|---|---|
-| 1 Import drawing | Put the shape in | nothing to cut |
-| 2 Optimize drawing | Check size, close gaps, dedupe | wrong size / double cuts |
-| 3 Technique setting | Lead, kerf, micro joint, cooling point | burn marks, wrong size, tipped parts |
-| 4 Toolpath planning | Inner first, outer last | part drops early, crash risk |
-| 5 Machining precheck | Simulate / frame / dry run | crash or cut off the sheet |
-| 6 Machining control | Start / pause / breakpoint | — |
+| Import | get the shape in | nothing to cut |
+| Optimize | measure, close gaps, dedupe | wrong size, double cuts |
+| Technique | lead, kerf, micro joint, cooling point | burns, wrong size, flying parts |
+| Toolpath | holes first, outer last | part drops early |
+| Precheck | simulate / frame / dry run | crash or cut off sheet |
+| Control | start, pause, breakpoint | — |
 
-**Simulate ≠ dry run ≠ beam-on** (the #1 beginner mix-up):
+Simulate, dry run, cut are not the same:
 
-| | Machine moves? | Laser on? | Use |
-|---|---|---|---|
-| Software simulate | no | no | see path/order on screen |
-| Frame / dry run | **yes** | no | real envelope / collisions |
-| Cut | yes | **yes** | make the part |
+- Simulate: machine stays put. No laser. Screen only.
+- Frame / dry run: machine moves. No laser. Check range and crashes.
+- Cut: moves, laser on.
 
----
+## Lead, kerf, micro joint, cooling point
 
-## Why lead / kerf / micro joint / cooling point
+All four exist because the beam makes a mess.
 
-They cancel physical side effects — not software being fussy.
+![Lead](../../../assets/screenshots/bochu-cypcut/lead-line.png)
 
-![Lead line (official UI)](../../../assets/screenshots/bochu-cypcut/lead-line.png)
+Lead: starting on the part edge burns a scar. Pierce in scrap, then walk onto the contour. You get a short entry tail.
 
-**1. Lead line** — Starting on the part edge burns a scar. Pierce in **scrap**, then walk onto the contour.
+![Kerf](../../../assets/screenshots/bochu-cypcut/kerf-comp.png)
 
-![Kerf compensation (official UI)](../../../assets/screenshots/bochu-cypcut/kerf-comp.png)
+Kerf: the beam removes a slit. Without offset, outer shrinks and holes grow. Shift the path about half a kerf. Measure kerf yourself.
 
-**2. Kerf compensation** — The beam removes a slit. Without offset: outer size undersizes, holes oversize. Offset ≈ half kerf. Measure kerf on a real cut.
+![Micro joint](../../../assets/screenshots/bochu-cypcut/micro-joint.png)
 
-![Micro joint (official UI)](../../../assets/screenshots/bochu-cypcut/micro-joint.png)
+Micro joint: cut-through parts tip up and hit the head. Leave a tiny uncut link so the part hangs on the skeleton. Snap it off later.
 
-**3. Micro joint** — Cut-through parts tip up and can hit the head. Leave a tiny **uncut link** so the part stays on the skeleton.
+![Cooling point](../../../assets/screenshots/bochu-cypcut/cooling-point.png)
 
-![Cooling point (official UI)](../../../assets/screenshots/bochu-cypcut/cooling-point.png)
+Cooling point: corners cook. Dwell, laser off, blow gas, continue.
 
-**4. Cooling point** — **Not** a micro joint. At a sharp corner, dwell, turn laser off, blow gas to cool, then continue.
+Micro joint stops tipping. Cooling point stops corner burn. Gaps on the path are joints. Solid dots are cooling points.
 
-> **Memory hook**: micro joint = stop tipping/crash; cooling point = stop corner burn.
+## Practice part
 
----
+Everything later uses this 80×40 plate with two holes.
 
-## Running part: 80×40 double-hole plate
+```text
+┌──────────────┐
+│  ○        ○  │
+│              │
+└──────────────┘
+```
 
-![ex01](../../../assets/previews/en/ex01-double-hole-plate.png)
+File: [ex01-double-hole-plate.dxf](../../../exercises/dxf/ex01-double-hole-plate.dxf)
 
-Download: [ex01-double-hole-plate.dxf](../../../exercises/dxf/ex01-double-hole-plate.dxf)
+No machine yet is fine. Demo mode can do the six steps.
 
-You do not need a machine yet. Finish the 6 software steps first.
+## Working alone
 
----
+PC work is all yours. Before touching a live machine, memorize lesson 05’s six lines: e-stop, guard, exhaust, alarms. If you are unsure, stop. Do not poke buttons.
 
-## What you can do with no teacher
+## Order
 
-| Yes | Notes |
-|---|---|
-| Learn the UI | next lesson |
-| Install demo mode | no control card still designs |
-| Import and measure DXF | fully offline |
-| Set lead/kerf/micro joint/cooling point + simulate | fully offline |
-| Memorize machine safety list | before first beam-on |
+00 here → [01 UI](01-ui-tour.md) → [02 Import](02-first-import.md) → [03 Technique](03-first-technique.md) → [04 Precheck](04-first-precheck.md) → [05 Machine](05-first-on-machine.md)
 
-**Safety floor** (for when you go alone): know the e-stop; do not fire with guards open; do not force-run past alarms. These are **rules you follow**, not a forever babysitter.
-
----
-
-## Path
-
-1. This page  
-2. [01 UI tour](01-ui-tour.md)  
-3. [02 First import](02-first-import.md)  
-4. [03 First technique](03-first-technique.md)  
-5. [04 First precheck](04-first-precheck.md)  
-6. [05 First on-machine](05-first-on-machine.md)  
-7. Stuck? [00-stuck](00-stuck.md)
-
-Next: [01 UI tour](01-ui-tour.md)
+Stuck: [stuck guide](00-stuck.md)

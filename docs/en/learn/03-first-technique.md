@@ -1,67 +1,33 @@
-# 03 · First technique (lead / kerf / micro joint / cooling point)
+# 03 Lead, kerf, micro joint, cooling point
 
 [简体中文](../../zh-CN/learn/03-first-technique.md) | [English](./03-first-technique.md)
 
-> **Result**: leads, offset path, micro joints on non-mating edges, cooling points on corners.
+![Technique panel](../../../assets/screenshots/bochu-cypcut/technique-panel.png)
 
-## Four actions
+## Lead
 
-| Do | Where | Success looks like |
-|---|---|---|
-| Add leads | technique / lead | short entry tails |
-| Kerf offset | technique / compensate | path shifted ~½ kerf |
-| Micro joint | technique / micro joint | gaps on path |
-| Cooling point | technique / cooling point | solid dots on path |
+![Lead](../../../assets/screenshots/bochu-cypcut/lead-line.png)
 
-![Technique panel (official)](../../../assets/screenshots/bochu-cypcut/technique-panel.png)
+Select the two holes. Lead in from inside. Outer frame, lead from outside. Default length is fine. Tails must not cross other parts.
 
-### 1. Leads
+## Kerf
 
-![Lead (official)](../../../assets/screenshots/bochu-cypcut/lead-line.png)
+![Kerf](../../../assets/screenshots/bochu-cypcut/kerf-comp.png)
 
-1. Select two holes → add lead from **inside scrap**.  
-2. Outer frame → lead from **outside**.  
-3. Success: entry tails appear.  
-4. Check: tails do not cross other parts.
+Outer grows, inner shrinks. Start with a table value. Measure later. Wrong direction makes size worse, not better.
 
-### 2. Kerf
+## Micro joint
 
-![Kerf (official)](../../../assets/screenshots/bochu-cypcut/kerf-comp.png)
+![Micro joint](../../../assets/screenshots/bochu-cypcut/micro-joint.png)
 
-1. Open kerf compensation.  
-2. Start with table/default; **measure later**.  
-3. Outer grows, inner shrinks.  
-4. Success: path offset from design.  
-5. Wrong direction makes size worse — flip it.
+One or two joints on non-mating outer edges. Path shows gaps. Leave holes alone.
 
-### 3. Micro joints (anti-tip)
+## Cooling point
 
-![Micro joint (official)](../../../assets/screenshots/bochu-cypcut/micro-joint.png)
+![Cooling point](../../../assets/screenshots/bochu-cypcut/cooling-point.png)
 
-1. Put 1–2 joints on **outer non-mating edges**.  
-2. Success: **gaps** on path (not solid dots).  
-3. Do not put joints on holes.
+Put cooling points on sharp corners. Path shows solid dots.
 
-### 4. Cooling points (anti-burn) ← not micro joints
+Gap = micro joint. Solid dot = cooling point. Joints stop tipping. Cooling points stop corner burn.
 
-![Cooling point (official)](../../../assets/screenshots/bochu-cypcut/cooling-point.png)
-
-1. Put cooling points on **sharp corners**.  
-2. Success: **solid dots**.  
-
-| | Mark | Purpose | At that point |
-|---|---|---|---|
-| Micro joint | gap | stop tip/crash | laser off, leave link |
-| Cooling point | solid dot | stop corner burn | dwell + off + gas cool |
-
-## Self-check
-
-- [ ] Leads: into holes / out of frame  
-- [ ] Kerf: outer grow, inner shrink  
-- [ ] Joints on non-mating outer edges  
-- [ ] Cooling dots on corners  
-- [ ] Can explain joint vs cooling  
-
-**Chain**: leads avoid scars → kerf fills the slit → joints stop tipping → cooling stops corner burn.
-
-Next: [04 First precheck](04-first-precheck.md)
+Next: [04 Precheck](04-first-precheck.md)

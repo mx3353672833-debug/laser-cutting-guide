@@ -1,48 +1,26 @@
-# 04 · First precheck (simulate / frame / dry run)
+# 04 Precheck
 
 [简体中文](../../zh-CN/learn/04-first-precheck.md) | [English](./04-first-precheck.md)
 
-> **Result**: correct order, range on stock, know what moves. **Fully doable on the PC.**
+## Sort
 
-## Sort first (inner then outer)
+Hole 1 → hole 2 → outer. Outer first drops the part.
 
-1. Open sort / toolpath planning.  
-2. Target: **hole1 → hole2 → outer**.  
-3. Success: numbers 1,2,3 are holes before outer.  
-4. Wrong: outer first → parts drop.
+## Three actions
 
-## Three checks
+Simulate does not move the machine.  
+Frame and dry run do.
 
-| Action | Machine | Watch |
-|---|---|---|
-| Simulate | **no move** | path shape/order |
-| Frame | **moves** | pointer/path on stock? |
-| Dry Run | **moves** | collisions / envelope |
+![Frame and dry run](../../../assets/screenshots/bochu-cypcut/frame-border-dryrun.png)
 
-![Frame/Border/DryRun (official)](../../../assets/screenshots/bochu-cypcut/frame-border-dryrun.png)
+![Preview](../../../assets/screenshots/bochu-cypcut/preview-position.png)
 
-![Preview position (official)](../../../assets/screenshots/bochu-cypcut/preview-position.png)
+## Simulate on the PC first
 
-### A. Software simulate (now)
+Press simulate. Order must be holes then outer. Expect three paths. If order is wrong, go back and sort.
 
-1. Press **Simulate**.  
-2. Success: 1→2→3 as planned.  
-3. Count **3** contour paths.
+## Frame and dry run when you have a machine
 
-### B. Frame / dry run (when a machine is free)
+Plate flat. People clear. Frame: pointer stays on stock. Dry run: nothing hits. If it goes off stock or wants to crash, stop. Move the part or the plate. Do not force a cut.
 
-1. Stock loaded, people clear.  
-2. Frame → red pointer inside stock.  
-3. Dry run → no fixture/rack crash.  
-4. Fail → **stop**, move part/stock; do not force cut.
-
-## Self-check
-
-- [ ] Order hole→outer  
-- [ ] Simulate does not move machine  
-- [ ] Know frame/dry run move  
-- [ ] 3 paths in simulate  
-
-**Chain**: inner first → simulate order → frame range → dry run collisions.
-
-Next: [05 First on-machine](05-first-on-machine.md)
+Next: [05 Machine](05-first-on-machine.md)
