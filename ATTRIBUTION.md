@@ -16,6 +16,21 @@
 | 部件/激光器 | BM111；BS06K CAT；BLT421S；Raycus CW；Maxphotonics MFMC 等 | 按型号条件引用 |
 | 质量/维护文章 | Bochu 保养文/常见问题；Sino-Galvo four criteria；Quicklaser Q&A；GWEIKE nozzle guide / GA checklist | 自有改写+原链 |
 
+### 界面截图（v0.1 自学主线）
+
+`assets/screenshots/bochu-cypcut/` 内 PNG 来自**柏楚官方英文教程页**（教学用引用截图，非本项目绘制）：
+
+| 文件 | 官方教程页 |
+|---|---|
+| flow-overview.png | https://www.bochu.com/tutorials/quick-start-operation-flow/ |
+| import-dialog.png | https://www.bochu.com/tutorials/basics-import-drawing/ |
+| technique-panel.png / lead-line.png / micro-joint.png / cooling-point.png / kerf-comp.png / inner-outer.png / layer-cut.png | https://www.bochu.com/tutorials/basics-technique-setting/ |
+| manual-check.png / preview-position.png / frame-border-dryrun.png | https://www.bochu.com/tutorials/basics-machining-precheck/ |
+| control-panel.png / coordinates.png / alarm-title.png | https://www.bochu.com/tutorials/basics-machining-control/ |
+| find-edge.png / find-edge-steps.png | https://www.bochu.com/tutorials/find-sheet-edge-and-rotation-angle/ |
+
+版权归上海柏楚电子。用于指认界面与自学对照；若权利方要求下架可移除。**不是**可随意商用的素材包。
+
 未明确允许再分发的材料：**不入库**。如需官方插图，请向权利方索取书面授权。
 
 ## English

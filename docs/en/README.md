@@ -23,6 +23,21 @@ A bilingual practical laser-cutting guide v0.1 for sales people: Bochu software 
 | 14 | [Trade Shows and Customer Site Demos](14-demo-events.md) | demo |
 | 15 | [Migrating from Bochu to Raytools / Empower](15-raytools-migration.md) | concept+pending |
 
+
+## Zero-based self-study (start here)
+
+Most people learn on a phone/PC first, then practice alone on a machine.
+
+1. [00 Why this works](learn/00-why-this-works.md)
+2. [01 UI tour (real screenshots)](learn/01-ui-tour.md)
+3. [02 First import](learn/02-first-import.md)
+4. [03 First technique](learn/03-first-technique.md)
+5. [04 First precheck](learn/04-first-precheck.md)
+6. [05 First on-machine checklist](learn/05-first-on-machine.md)
+7. [Stuck guide](learn/00-stuck.md)
+
+Full reference chapters 00–15 remain below as a manual.
+
 ## Extra docs
 
 - [Glossary](glossary.md)

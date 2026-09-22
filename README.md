@@ -10,8 +10,10 @@ Bilingual practical guide v0.1 for laser-cutting sales people: prepare machining
 
 | Language | Start here |
 |---|---|
-| 简体中文 | [docs/zh-CN/00-start-here.md](docs/zh-CN/00-start-here.md) |
-| English | [docs/en/00-start-here.md](docs/en/00-start-here.md) |
+| 简体中文（自学主线） | [docs/zh-CN/learn/00-why-this-works.md](docs/zh-CN/learn/00-why-this-works.md) |
+| 简体中文（参考目录） | [docs/zh-CN/00-start-here.md](docs/zh-CN/00-start-here.md) |
+| English (self-study) | [docs/en/learn/00-why-this-works.md](docs/en/learn/00-why-this-works.md) |
+| English (reference) | [docs/en/00-start-here.md](docs/en/00-start-here.md) |
 
 ## What is inside
 
@@ -22,7 +24,7 @@ Bilingual practical guide v0.1 for laser-cutting sales people: prepare machining
 
 ## Safety and scope
 
-- First machine work must be supervised by someone who knows **that** machine.
+- Before first beam-on: memorize the safety checklist in `learn/05-first-on-machine.md` (e-stop, guards, exhaust). Follow **that machine’s SOP**; a helper is useful but the checklist is the floor.
 - Demo mode / software simulation is not beam-on control.
 - Process numbers stay tied to material, thickness, head, nozzle, gas, and a verified process row.
 - v0.1 is not a vendor certified course and has not been validated on a live machine.
