@@ -1,95 +1,61 @@
-# 00 · Before You Start: Learning Path and Practice Setup
+# 00 · Start with one drawing
 
-[简体中文](../zh-CN/00-start-here.md) | [English](./00-start-here.md)
+[简体中文](../zh-CN/00-start-here.md) · [English](./00-start-here.md)
 
-[Next / Bochu Systems, Software, and Files](01-bochu-systems.md)
+A customer gives you a drawing and asks for a sample. Before you can hand over a part, you need to establish that the drawing is correct, decide how the machine will travel, and make sure the job can be cut on the sheet in front of you.
 
-## What you will learn
+We will work through those decisions using one small mounting plate: 80 × 40 mm, with two 8 mm diameter holes on 40 mm centres. Its simple geometry makes mistakes easier to locate.
 
-Where to start, what you can practice offline, what needs a supervised machine session, and how to fill your machine and software version card.
+![The running example, with overall dimensions, hole diameters and spacing](../../assets/figures/en/workpiece.svg)
 
-## Prerequisites and version scope
+[Download the DXF](../../exercises/dxf/ex01-double-hole-plate.dxf) · [Exercise notes](../../exercises/answers/en/ex01-double-hole-plate.md)
 
-- You already know cutting principles, main components, and the sales context.
-- Concepts are shared; concrete menus are labeled for CypCutE (manual based on software 6.4.2310) and CypCutPro (software 7.1.2432.5).
-- The practice machine is not fixed yet. This guide does not bind to one machine SOP.
+## A drawing is not yet a cutting program
 
-## Learning path
+The DXF describes a rectangle and two circles. It does not decide where to pierce, which hole to cut first, which side receives the kerf offset, or which material recipe suits your machine.
 
-1. **Software basics (00–04)**: import → check → leads / kerf / micro joints / cooling points → nesting, sorting, simulation.
-2. **Machine track (05–10)**: parts and pre-start → homing and calibration → plate and edge finding → process table and first part → pause and recovery.
-3. **Independent work (11–14)**: exceptions → maintenance boundaries → three projects → demos.
-4. **Migration (15)**: which Bochu concepts transfer to Raytools / Empower, and what must be relearned.
+Consider kerf compensation. A cut has width. If the beam centre follows the rectangle’s nominal edge, it removes material on both sides of that edge, so the retained part may be undersize. The outside toolpath must move towards the surrounding waste. At a hole, the retained material is outside the circle, so the toolpath moves into the hole instead.
 
-**Running case**: a double-hole plate about 80×40 mm with two Ø8 holes. Later chapters reuse this part.
+Sequence matters too. Cutting the outside profile first can leave the part poorly supported before the holes are finished. Our starting sequence is therefore both holes followed by the outside profile. The drawing and the path used to cut it are related, but they are not the same thing.
 
-```text
-Offline: drawing / process prep / simulate     Supervised: power-on / calibrate / edge / beam-on
-        00 ── 04                                      05 ── 10
-               \                                        /
-                13 projects / 14 demo prep
-```
+## Build a file you can explain
 
-*Figure: learning path (text diagram, not a software screenshot).*
+Chapters 1–4 can be practised on a design computer disconnected from the machine. Each chapter uses the same plate.
 
-## Offline vs supervised
+| Chapter | What you produce | What you should be able to explain |
+|---|---|---|
+| 1 | Software name and running version | Whether you are using CypCut, E or Pro |
+| 2 | A correctly sized, clean drawing | Why it measures 80 × 40, not 2032 × 1016 |
+| 3 | A working copy with layers and leads | Which material is waste, and how the path differs from the drawing |
+| 4 | A correctly ordered simulation | How the two holes and outer profile form one job |
 
-| Tag | Meaning |
-|---|---|
-| `Offline practice` | Doable without a machine, including demo mode |
-| `Supervised on machine` | First time must be with a technician who knows this machine |
-| `Pending machine verification` | Concept OK; buttons/values must be checked on the real version |
+If you have not installed the software, read the illustrated examples first. Then repeat the exercises in the software that matches your machine. [Chapter 1](01-bochu-systems.md) explains the installation and version choices.
 
-| Offline | Supervised on machine |
-|---|---|
-| Import, units, optimize, leads / kerf / micro joints / cooling points, layer mapping, nesting, sorting, software simulation | Power sequence, homing, capacitive/floating-head calibration, plate setup, edge finding, real frame/dry-run motion, beam-on trial, first-article check, breakpoint resume |
+## What changes at the machine
 
-> Watching videos or finishing offline drills is not independent machine operation. Get supervision for first beam-on work.
+A corner in the drawing does not automatically correspond to a corner of the sheet. Machine work adds coordinate referencing, sheet location, nozzle and gas checks, recipe selection, travel checks and first-part inspection. Chapters 5–10 follow that progression.
 
-## Fill your version card
+One distinction matters immediately: simulation plays the path on screen; a dry run moves the real machine. Before using an unfamiliar machine, complete its operating instruction and understand its guarding, stopping controls and startup procedure. Memorising a short checklist is not a substitute for that knowledge.
 
-Copy `templates/en/00-machine-version-card.md` and fill it. Keep the software name and the About-dialog runtime version separate.
+## Reading the illustrations
 
-| Item | Your entry |
-|---|---|
-| Machine model / serial | |
-| Laser brand and power | |
-| Cutting head model | |
-| Controller (FSCUT…) | |
-| Software (CypCut / CypCutE / CypCutPro / HypCut…) | |
-| Runtime version from About | |
-| Manual document version | |
-| Software version the manual is based on | |
-| Supervising technician | |
+The dimensioned blue drawings are original exercise diagrams. The dark software illustrations come from Bochu’s classic CypCut tutorials. Their captions explain what to inspect. CypCutE and CypCutPro may arrange controls differently; use the matching software manual when the screen differs.
 
-## Exercises
+This edition has not been validated through a complete software session or a live cutting trial. You can learn the documented concepts now. Missing machine parameters are left unresolved rather than replaced with arbitrary defaults.
 
-1. Fill a version card (runtime may be “not measured”).
-2. List three offline items and three supervised items.
-3. State the running-case outline and hole size in general terms (answers in ch. 13).
+## Your first exercise
 
-## Answers and criteria
+Download the file, then identify the material that will remain in the finished part and the material that becomes waste.
 
-1. Pass if the three version fields stay separate.
-2. See the table above.
-3. Outline about 80×40 mm, two holes about Ø8 (offline exercise geometry; production size follows drawing and stock).
+<details>
+<summary>Compare your answer</summary>
 
-**Criteria**: correct version split; no claim that demo mode can cut.
+The retained part lies inside the rectangle and outside both circles. The surrounding sheet and the two hole slugs are waste. This distinction determines lead placement and offset direction.
 
-## Common mistakes
+</details>
 
-- Treating the manual cover version as the software runtime version.
-- Believing simulation moves the machine or fires the laser.
-- Clicking from someone else’s screenshot without a version card.
-
-## Sources
-
-- CypCutE User Manual V7.1 (based on 6.4.2310) welcome and §1.2
-- CypCutPro User Manual V1.0.0 (software 7.1.2432.5) preface
-- Project learning goals (not a vendor certified course)
+Reference: [Bochu quick-start workflow](https://www.bochu.com/tutorials/quick-start-operation-flow/). Dimensions come from the project’s exercise file.
 
 ---
 
-[Next / Bochu Systems, Software, and Files](01-bochu-systems.md)
-
-[简体中文](../zh-CN/00-start-here.md) | [English](./00-start-here.md)
+[Contents](README.md) · [Find your software and workspace →](01-bochu-systems.md)

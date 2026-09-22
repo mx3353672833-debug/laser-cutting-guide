@@ -1,89 +1,35 @@
-# 15 · Migrating from Bochu to Raytools / Empower
+# 15 · Transfer your skills to RayTools
 
-[简体中文](../zh-CN/15-raytools-migration.md) | [English](./15-raytools-migration.md)
+[简体中文](../zh-CN/15-raytools-migration.md) · [English](./15-raytools-migration.md)
 
-[Previous / Trade Shows and Customer Site Demos](14-demo-events.md)
+Bochu practice teaches transferable skills: checking geometry, identifying retained material, placing leads, planning sequence and inspecting results. In RayTools/Empower, you need to learn how the particular software expresses those actions and how the installed machine responds.
 
-## What you will learn
+## Transfer the same part first
 
-Which Bochu concepts transfer to Raytools / Empower, and which UI, licensing, and calibration steps must be relearned.
+Keep ex01 as the test case. Identify the XC controller and software version, then repeat import, measurement, mapping, leads and simulation. Compare the same dimensions and path outcomes rather than searching for controls in Bochu-like positions.
 
-## Prerequisites and version scope
-
-Finish Bochu chapters 03–12. Empower facts are **model × manual version** specific.
-
-## 1. Transferable concepts
-
-Homing, capacitive/floating-head idea, edge finding, frame, dry run, simulate, breakpoint, task, leads, kerf, micro joints, cooling points, sorting, material/layer process.
-
-## 2. Licensing and offline (per model)
-
-| Model / manual | Wording | Offline |
-|---|---|---|
-| XC3000S User Manual V1.2 | must use a dongle; without it a simulation edition opens | simulation edition |
-| XC3000S Commissioning V1.4 §3.3 | 激智云 mini-program scan → machine code & dongle no. → register | — |
-| XC3000Plus Commissioning V1.3 | revision log: “removed dongle as standard in 1.1” | **to verify** |
-
-Do not write “all Empower software is dongle + simulation”. Bochu DEMO (no control card) and Empower simulation are different mechanisms.
-
-## 3. Model matrix wording
-
-- Use models listed on the site/catalog at read time (XC3000S / Plus / Pro / XC6000…).  
-- XC7000: **no official existence evidence found in this round** (not “does not exist”).  
-- CN/EN site version numbers may differ; do not rank freshness without branch proof.
-
-## 4. Must relearn (examples)
-
-1. Calibration entry and “reset capacitive → recalibrate”.  
-2. Edge-finding parameter set.  
-3. Piercing taxonomy (five levels / staged / progressive / lightning…).  
-4. Advanced process (vibration, seamless micro joint, lead process).  
-5. XC6000 auto-tuning, multi-task extras.  
-6. Licensing/registration.  
-7. Import formats.  
-8. UI language and alarm area.
-
-## 5. Concept map (example)
-
-| Bochu | Empower (XC3000S context) |
+| Concept you already know | Reconfirm in the new system |
 |---|---|
-| Homing | Find origin / home |
-| Capacitive calibration | Capacitive sensor → one-click calibrate |
-| Frame / dry run | Frame / dry run |
-| Breakpoint resume | Breakpoint continue |
-| Task | Machining task |
-| Micro joint / cooling point | Same concepts (follow that manual’s definitions) |
+| Drawing and machining path differ | Geometry, process and saved-task formats |
+| Source layers need target behaviour | Default mapping, first/last processing and exclusions |
+| Compensation moves towards waste | Input quantity, sign convention and display |
+| Recovery depends on position | Task storage, breakpoint positioning and continuation conditions |
+| Following and edge finding need machine readiness | Calibration entry points, strategies and alarms |
 
-Pressure calibration as in CypCutPro was not seen as a same-name standalone Empower function — `Pending machine verification`.
+## Licensing is model-specific
 
-## Exercises
+The XC3000S user manual V1.2 describes a dongle and a simulation version without it. Its commissioning manual V1.4 §3.3 documents cloud registration. XC3000Plus commissioning manual V1.3 only records removal of the dongle from standard equipment; that does not establish the complete new licensing mechanism or equivalence with S.
 
-1. Five transferable concepts.
-2. Can Plus reuse the S “must have dongle” sentence?
-3. How should XC7000 be written?
+For XC7000, this research found no official existence evidence. That is a search limitation, not proof that the model cannot exist. Use the actual model on the equipment and screen when choosing documentation.
 
-## Answers and criteria
+## A practical transfer exercise
 
-1. See §1.  
-2. No; Plus only proves the “dongle standard removed” revision.  
-3. “No official existence evidence found in this round.”
+Record the Bochu entry point and the corresponding RayTools entry point in two columns. After each step, record the same result: 80 × 40, two Ø8 holes, annotation excluded, holes before outside. Calibration, piercing settings and task recovery require confirmation against the new system and machine; matching labels do not justify copying parameters.
 
-**Criteria**: per-model licensing; no absolute wording.
+If only simulation is available or licensing is incomplete, finish the supported file exercises and retain real-control tests as unresolved items. Understanding the process speeds up learning a second system, but does not replace experience with the unfamiliar machine.
 
-## Common mistakes
-
-- One licensing story for all models.
-- Presenting Chinese button glosses as confirmed English UI.
-
-## Sources
-
-- XC3000S User Manual V1.2 preface
-- XC3000S Commissioning V1.4 §3.3
-- XC3000Plus Commissioning V1.3 revision log
-- Empower download center / catalog at read time
+References: [official download centre](https://www.empower.cn/download-2/); XC3000S user V1.2 and commissioning V1.4 manuals; XC3000Plus commissioning manual V1.3.
 
 ---
 
-[Previous / Trade Shows and Customer Site Demos](14-demo-events.md)
-
-[简体中文](../zh-CN/15-raytools-migration.md) | [English](./15-raytools-migration.md)
+[← Prepare a repeatable demonstration](14-demo-events.md) · [Contents](README.md)

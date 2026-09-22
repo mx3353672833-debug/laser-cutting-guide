@@ -1,99 +1,71 @@
-# 02 · Import Drawings and Check Dimensions
+# 02 · Clean and check the drawing
 
-[简体中文](../zh-CN/02-import-drawings.md) | [English](./02-import-drawings.md)
+[简体中文](../zh-CN/02-import-drawings.md) · [English](./02-import-drawings.md)
 
-[Previous / Bochu Systems, Software, and Files](01-bochu-systems.md) · [Next / Layers, Leads, Kerf, Micro Joints, and Cooling Points](03-leads-kerf-microjoints.md)
+Leave gas pressure, power and compensation alone for now. The task is to establish that the drawing represents the part you intend to make. Start with the [two-hole plate](../../exercises/dxf/ex01-double-hole-plate.dxf), keeping an unchanged original and a working copy.
 
-![Units and scale (diagram)](../../assets/figures/en/fig-02-unit-scale.svg)
-![Open and closed contours (diagram)](../../assets/figures/en/fig-03-open-closed.svg)
-![Duplicate lines (diagram)](../../assets/figures/en/fig-04-duplicate-lines.svg)
+## 1. Load one copy into an empty document
 
-*Figures 02-1…02-3 diagrams.*
+Bochu’s classic tutorial uses File → Import to append geometry. For a fresh exercise, Open can load a single file instead. Do not import the same plate again into an occupied drawing board.
 
-## What you will learn
+![Classic CypCut import menu](../../assets/screenshots/bochu-cypcut/import-dialog.png)
 
-After importing a DXF: check units, open ends, duplicate lines, and tiny entities; clean a practice drawing.
+*Locate File and the Import row. Reading the file is only the first step; it does not establish that the geometry is correct.*
 
-## Prerequisites and version scope
+Fit all geometry into view. Find one rectangle, two circles and a text label. In ex01 the label belongs to the MARK source layer. This exercise cuts the profiles only; we will explicitly exclude the label next chapter. If nothing is visible, check that a file loaded and fit the view before importing it again.
 
-Chapter 01. CypCutE §1.4 import/optimize; CypCut tutorial “Optimize Drawing”.
+## 2. Measure an edge and a hole
 
-## 1. Measure first
+Use the distance tool in your version and snap to the endpoints of the long edge. Expect 80 mm, and 40 mm on the short edge. Read a circle’s properties: diameter 8 mm, or radius 4 mm. A radius field showing 4 does not mean a 4 mm hole.
 
-1. Import.
-2. **Immediately measure a known edge** (running case long edge ≈ 80 mm).
-3. Check units (`$INSUNITS` or import dialog).
+![Plate dimensions](../../assets/figures/en/workpiece.svg)
 
-If it shows about 2032 mm, the file was likely millimeter geometry read as inches (×25.4). Fix units/scale and re-measure; **keep the original file**.
+The circle centres are (20,20) and (60,20), giving 40 mm centre spacing. These describe drawing geometry, not the position on the machine.
 
-## 2. Open vs closed
+Open [ex02, wrong units](../../exercises/dxf/ex02-wrong-units.dxf). Its coordinate values still describe an 80 × 40 rectangle, but the file declares inches. An importer that converts that declaration to millimetres will produce 2032 × 1016. Software that ignores the declaration may still display 80 × 40. Record what your importer actually does; the exercise does not require the drawing to enlarge.
 
-- Outer and inner contours should close to form outer/inner profiles.
-- Use open-contour checkers or look for unpaired endpoints.
-- Close gaps by drawing/extending — do not rely on kerf offset to “guess” them shut.
+Once you establish the intended units, reinterpret the import units where supported. If scaling is needed, derive the factor from the measured result. Do not divide a correctly displayed 80 × 40 drawing by 25.4. Resolve scale before adding process geometry that may need rebuilding afterward.
 
-![ex04 preview](../../assets/previews/en/ex04-open-contour.png)
+## 3. Find the disconnected endpoints
 
-*Figure 02-4 exercise ex04: lower-left gap preview (drawn from DXF geometry).*
+[Ex04](../../exercises/dxf/ex04-open-contour.dxf) almost forms a rectangle, but has a gap at the lower left.
 
-## 3. Duplicates and tiny entities
+![Ex04 lower-left gap](../../assets/previews/en/ex04-open-contour.png)
 
-- Collinear duplicates get cut multiple times. Deduplicate until each edge remains once.
-- Tiny entities may be removed by “delete tiny graphics” style optimizers. `Offline practice`: backup → read threshold and unit → compare import and record. Whether the threshold is right is `Pending machine verification`.
+Zoom in: the vertical line ends at (0,2), while the bottom edge ends at (0,0). The gap is 2 mm. Use your version’s open-contour selection or display tool, then draw the missing segment or extend the correct geometry after confirming the design intent. Recheck closure afterward. Two endpoints can look connected at a small zoom level without being connected geometrically.
 
-![ex03 preview](../../assets/previews/en/ex03-duplicate-lines.png)
+Whether a merge command closes this gap depends on tolerance. Increasing tolerance arbitrarily may connect other features that should stay separate. Repairing this known gap explicitly makes the change easy to verify.
 
-*Figure 02-5 exercise ex03: bottom-edge duplicates.*
+## 4. One visible edge can contain three entities
 
-## 4. Optimizer checklist (do → where → expect)
+The bottom edge in [ex03](../../exercises/dxf/ex03-duplicate-lines.dxf) consists of an edge of the closed rectangle plus two coincident LINE entities. It looks like one edge but can create repeated travel if left untreated.
 
-| Do | Where (CypCutE context) | Expect |
-|---|---|---|
-| Remove duplicates | cleanup tools | bottom edge reduced to one |
-| Merge connected lines | same | fewer open ends |
-| Delete tiny graphics | same, read threshold first | tiny segments go or stay (record) |
-| Distinguish outer/inner | geometry process | outer frame and holes classified |
+Keep a copy, remove duplicates, and check that only one effective path remains on the bottom edge. Inspect simulation for repeated passes. Merging connected lines changes connectivity; removing duplicates resolves overlapping entities.
 
-Button names vary by version.
+[Ex05](../../exercises/dxf/ex05-tiny-entities.dxf) contains a 0.05 mm line and a circle of radius 0.03 mm. Use it to observe a small-entity removal threshold. A small feature on a production drawing may be intentional, so automatic cleanup still requires judgement.
 
-## 5. Running case
+## Record the result
 
-![ex01 preview](../../assets/previews/en/ex01-double-hole-plate.png)
+| Check | Expected for ex01 |
+|---|---|
+| Overall size | 80 × 40 mm |
+| Holes | Two, diameter 8 mm |
+| Centre spacing | 40 mm |
+| Profiles | Closed and correctly positioned |
+| Duplicates/debris | No unwanted machining entities |
+| Text label | Identified for exclusion from machining |
 
-*Figure 02-6 exercise ex01: 80×40 plate + two holes.*
+Save the checked working copy. Next, we add process geometry to that file.
 
-Import ex01 → measure 80 / 40 → two holes inner → outer closed.
+<details>
+<summary>Check your understanding: what do 2032, 4 and 2 describe?</summary>
 
-## Exercises
+2032 mm may result from interpreting 80 drawing units as inches. In ex01, 4 mm is the circle radius, not the diameter. In ex04, 2 mm is the gap length. Identify the object and unit before making a correction.
 
-1. Open `exercises/dxf/ex02-wrong-units.dxf` and describe the size symptom and fix idea.
-2. In ex03, locate duplicates.
-3. In ex04, report both gap endpoints (coordinates).
-4. Record an ex05 tiny-entity experiment (3 lines or mark pending).
+</details>
 
-## Answers and criteria
-
-1. `$INSUNITS=inch` with mm-like geometry; ~25.4× inflation. Interpret as mm and measure.
-2. Bottom edge (0,0)–(60,0) duplicated by LINE entities.
-3. Endpoints **(0,0) and (0,2)**; gap at **lower-left**, missing segment length 2.
-4. See `exercises/answers/en/ex05-tiny-entities.md`.
-
-**Criteria**: measure first; endpoints correct; no single mandatory threshold claim.
-
-## Common mistakes
-
-- Editing kerf before measuring.
-- Hoping compensation closes a gap.
-- Deleting intentional teaching defects as corrupt files.
-
-## Sources
-
-- CypCutE import/optimize sections (based on 6.4.2310)
-- CypCut tutorial Optimize Drawing
-- `exercises/dxf-structure-report.json`
+References: CypCutE V7.1 §1.4.2; [official import tutorial](https://www.bochu.com/tutorials/basics-import-drawing/); original exercise geometry.
 
 ---
 
-[Previous / Bochu Systems, Software, and Files](01-bochu-systems.md) · [Next / Layers, Leads, Kerf, Micro Joints, and Cooling Points](03-leads-kerf-microjoints.md)
-
-[简体中文](../zh-CN/02-import-drawings.md) | [English](./02-import-drawings.md)
+[← Find your software and workspace](01-bochu-systems.md) · [Contents](README.md) · [Put the toolpath in the right place →](03-leads-kerf-microjoints.md)

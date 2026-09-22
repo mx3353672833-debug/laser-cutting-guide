@@ -1,76 +1,31 @@
-# 11 · Common Exceptions: Triage and Feedback
+# 11 · Investigate a cutting problem
 
-[简体中文](../zh-CN/11-exceptions-feedback.md) | [English](./11-exceptions-feedback.md)
+[简体中文](../zh-CN/11-exceptions-feedback.md) · [English](./11-exceptions-feedback.md)
 
-[Previous / Pause, Stop, Breakpoints, and Tasks](10-pause-resume-tasks.md) · [Next / Daily Checks, Consumables, and Maintenance Boundaries](12-maintenance-boundaries.md)
+“It cuts badly” is not a sufficiently specific fault report. First distinguish file problems, positioning/motion problems and cut-quality problems. Change one justified condition at a time so that the result remains interpretable.
 
-## What you will learn
+Record the part identifier, full software version, exact alarm/code, stage of the job, recent changes and whether the sheet moved. Label part orientation and defect locations in photographs. Preserve the current file and recipe before recovery or adjustment.
 
-Capture the symptom and evidence; separate operator checks from technician work.
+| Symptom | First checks | Avoid |
+|---|---|---|
+| Fixed scale error after import | Units, measurement reference and importer behaviour | Using kerf compensation to fix scale |
+| Repeated profile travel | Duplicate geometry/imports, target layers and order | Hiding extra time by increasing speed |
+| Whole part displaced | Zero, coordinate mode and sheet location | Editing design dimensions first |
+| Local incomplete cut | Recipe match, supply, nozzle and path location | Changing speed, focus and pressure together |
+| Abnormal following/collision risk | Stop motion, preserve the message, inspect sheet/head state | Repeated reset or bypassing protection |
 
-## Prerequisites and version scope
+Start with facts that do not change machine configuration: file identity, material, nozzle specification and the alarm text. Electrical, optical, motion-configuration and interlock work belongs with the relevant qualified technician.
 
-Chapter 10. No bypass of interlocks, no disabling protections, no forcing faulty cutting.
+## Write a useful report
 
-## 1. Two-level triage
+“After hole 2, continuous dross along the right outer edge. Same material batch; nozzle replaced today. File P01-r03, recipe SS-…, photo orientation marked. Focus and pressure not changed.” This is more useful than guessing that nitrogen is the problem: it preserves the symptom, recent change and current state.
 
-**Operator may check first (examples)**
+Use the [fault report](../../templates/en/03-exception-report.md). You need accurate observations, not a premature diagnosis. Online symptom tables suggest checks; they do not diagnose your machine.
 
-- Not homed → home (clear other alarms first).  
-- Incomplete cut → nozzle vs thickness, speed.  
-- Burr/dross → focus, power, speed, gas purity.  
-- Abnormal sparks → nozzle wear; replace; do not hide with extra pressure.  
-- Poor follow → capacitive/floating-head calibration first.  
-- Loose nozzle fitting → pause and retighten.
+Exercise: pressure, speed and focus were changed together and the edge improved. Does that prove pressure was responsible? No. Preserve a baseline and use approved, recorded, small-step trials to distinguish effects.
 
-**Technician / vendor (examples)**
-
-- Height-controller parameters, bus fault codes.  
-- Capacitive alarms with mechanical feedback faults.  
-- Seasonal water drain/antifreeze procedures.  
-- Optics, laser source, electrical installation.
-
-## 2. Feedback form fields
-
-Use `templates/en/03-exception-report.md`:
-
-1. Time, machine id, runtime software version.  
-2. Symptom (photo / raw alarm).  
-3. Material / thickness / process row / nozzle / gas.  
-4. Checks already done.  
-5. Stopped? Safe to continue?
-
-## 3. Case
-
-Sudden hole burr on the plate: log parameters → inspect nozzle roundness/burn → focus/speed → stop and escalate with photos/alarms.
-
-## Exercises
-
-1. Three operator checks vs three technician cases.
-2. Mini exception report (fictional sample is fine).
-3. Why not “reset and go”?
-
-## Answers and criteria
-
-1. See §1.  
-2. Fields complete.  
-3. Root cause and protections unresolved.
-
-**Criteria**: clear boundary; no hazardous advice.
-
-## Common mistakes
-
-- Randomly changing height-controller protection values.
-- Feedback without version and process row.
-
-## Sources
-
-- Bochu FAQ / common problems
-- CypCutPro alarms and restrictions
-- head manuals collision/nozzle notes
+References: matching controller alarm instructions; [Bochu cutting problem analysis](https://www.bochu.com/pro_information/激光切割常见问题分析及解答/).
 
 ---
 
-[Previous / Pause, Stop, Breakpoints, and Tasks](10-pause-resume-tasks.md) · [Next / Daily Checks, Consumables, and Maintenance Boundaries](12-maintenance-boundaries.md)
-
-[简体中文](../zh-CN/11-exceptions-feedback.md) | [English](./11-exceptions-feedback.md)
+[← Resume a stopped job](10-pause-resume-tasks.md) · [Contents](README.md) · [Inspect consumables and record maintenance →](12-maintenance-boundaries.md)

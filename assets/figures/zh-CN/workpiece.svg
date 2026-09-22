@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="510" viewBox="0 0 1000 510">
+<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#e5ebf0" stroke-width=".7"/></pattern><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M8 4L0 0V8Z" fill="#60748b"/></marker></defs>
+<rect width="1000" height="510" fill="#f6f9fc"/><rect x="32" y="60" width="936" height="392" fill="url(#grid)"/>
+<g font-family="PingFang SC,Arial,sans-serif"><text x="40" y="35" fill="#34465d" font-size="18">连接片 · 名义尺寸 / mm</text>
+<path d="M200 90H760V370H200Z M368 230a28 28 0 1 0 -56 0a28 28 0 1 0 56 0 M648 230a28 28 0 1 0 -56 0a28 28 0 1 0 56 0" fill="#e3edf9" fill-rule="evenodd" stroke="#2157b5" stroke-width="3"/>
+<g stroke="#8395aa" stroke-width="1" fill="none"><path d="M200 378v54M760 378v54M192 90H118M192 370H118M340 80V56M620 80V56"/><path d="M200 416H760M134 90V370M340 63H620" marker-start="url(#arrow)" marker-end="url(#arrow)"/><path d="M305 230h70M340 195v70M585 230h70M620 195v70" stroke-dasharray="6 4"/><path d="M639 211L810 146h80"/></g>
+<g fill="#34465d" font-size="21" text-anchor="middle"><text x="480" y="443">80</text><text x="104" y="237">40</text><text x="480" y="55">40</text><text x="860" y="137">2 × Ø8</text></g>
+<text x="200" y="480" fill="#586d84" font-size="17">蓝线：设计轮廓   圆内与矩形外：废料</text></g></svg>

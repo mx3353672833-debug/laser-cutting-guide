@@ -1,71 +1,31 @@
-# 14 · Trade Shows and Customer Site Demos
+# 14 · Prepare a repeatable demonstration
 
-[简体中文](../zh-CN/14-demo-events.md) | [English](./14-demo-events.md)
+[简体中文](../zh-CN/14-demo-events.md) · [English](./14-demo-events.md)
 
-[Previous / Three Complete Practice Projects](13-three-projects.md) · [Next / Migrating from Bochu to Raytools / Empower](15-raytools-migration.md)
+Last-minute changes to drawings, material or settings are common sources of demonstration problems. Prepare a repeatable demo package rather than trying to show the largest number of functions.
 
-## What you will learn
+## Complete the same job once beforehand
 
-Prepare trade-show / customer demos with sample packs, scripts, checklists, and an abort plan.
+Choose a sample, material and recipe already validated on this machine. Keep the machining file and first-part record together. Prepare a backup copy, matching sheet stock, suitable consumables and a finished sample. For an unvalidated new request, demonstrate preparation and simulation before attempting physical cutting.
 
-## Prerequisites and version scope
+Use the [demo preparation sheet](../../templates/en/04-demo-prep.md) to establish operator/presenter roles, audience position, part-removal conditions and the response to interruption. Avoid distracting the operator with unrelated interface actions.
 
-Chapters 09–12. **No vendor official demo guide found** — this chapter is project-authored and pending field validation.
+## Explain the mounting plate
 
-## 1. Demo kit
+“This drawing is 80 × 40 with two 8 mm holes. The path completes the holes before the outer profile. Leads begin in waste so that piercing is away from the finished edge. We will locate the sheet and check the range using the machine procedure, then measure the part.”
 
-| Item | Content |
-|---|---|
-| Samples | pre-cut plate, name plate, multi-part sample + spares |
-| Programs | verified process rows + drawings + USB backup |
-| Stock | same grade/thickness |
-| Spares | nozzles, windows for this head |
-| Forms | checklists, inspection log, emergency contacts |
-| Safety | e-stop location, exhaust, crowd barrier |
+This is a project-authored presentation example, not a certified manufacturer script. Each statement should point to something in the file or sample. Replace unsupported precision/speed claims with actual measurements and conditions.
 
-## 2. Script (familiar and authorized machine)
+## Handle changes deliberately
 
-1. Brief pre-start check.  
-2. Home.  
-3. Edge find → frame (pointer on stock).  
-4. Dry run or software simulate.  
-5. Trial / official cut one sample.  
-6. Explain face quality and conditions.  
-7. Change drawing and cut again.  8. Close out and record.
+A requested hole-size change can be demonstrated in an offline copy, followed by renewed geometry and path checks. Cutting it also requires confirming suitability for the material and validated process. A change of material or thickness changes recipe conditions, not just the drawing.
 
-**Talk track**: do not promise universal parameters; say “this machine, this stock, this process row”.
+If an alarm, supply problem, incomplete cut or uncertain location occurs, pause and explain the condition being checked. Simulation and finished samples can keep the discussion useful without bypassing protections.
 
-## 3. Abort plan
+Afterward, retain the final file, material/recipe conditions, measurements and follow-up questions. The reusable asset is a complete job record rather than merely a good-looking video.
 
-- Immediate stop: abnormal noise, alarms, smoke issues, lost interlock.  
-- Switch to sample explanation; do not force beam-on.  
-- Fill an exception report.
-
-## Exercises
-
-1. Six kit items.
-2. Three talk-track boundaries.
-3. Fill `templates/en/04-demo-prep.md`.
-
-## Answers and criteria
-
-1. See §1.  
-2. Example: no universal parameter promises; state machine/stock/row; no protection bypass.  
-3. Form complete.
-
-**Criteria**: abort plan exists; no stunt cutting.
-
-## Common mistakes
-
-- Changing unverified parameters live.
-- Letting the crowd crowd the machine.
-
-## Sources
-
-Project-authored; GWEIKE installation safety notes; first-part principles.
+Basis: project-authored demonstration guidance. Machine actions remain governed by Chapters 5–10 and the machine procedure.
 
 ---
 
-[Previous / Three Complete Practice Projects](13-three-projects.md) · [Next / Migrating from Bochu to Raytools / Empower](15-raytools-migration.md)
-
-[简体中文](../zh-CN/14-demo-events.md) | [English](./14-demo-events.md)
+[← Three practical projects](13-three-projects.md) · [Contents](README.md) · [Transfer your skills to RayTools →](15-raytools-migration.md)

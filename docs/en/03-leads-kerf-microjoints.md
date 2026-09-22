@@ -1,109 +1,70 @@
-# 03 · Layers, Leads, Kerf, Micro Joints, and Cooling Points
+# 03 · Put the toolpath in the right place
 
-[简体中文](../zh-CN/03-leads-kerf-microjoints.md) | [English](./03-leads-kerf-microjoints.md)
+[简体中文](../zh-CN/03-leads-kerf-microjoints.md) · [English](./03-leads-kerf-microjoints.md)
 
-[Previous / Import Drawings and Check Dimensions](02-import-drawings.md) · [Next / Nesting, Sorting, and Simulation](04-nesting-sorting-simulate.md)
+With the drawing checked, decide what will be machined, where cutting enters each profile, and which side receives the toolpath offset. Continue with the saved two-hole plate.
 
-![Leads (diagram)](../../assets/figures/en/fig-05-lead-line.svg)
-![Kerf (diagram)](../../assets/figures/en/fig-06-kerf.svg)
-![Micro joint (diagram)](../../assets/figures/en/fig-07-micro-joint.svg)
-![Inner/outer (diagram)](../../assets/figures/en/fig-08-inner-outer.svg)
-![Layer map (diagram)](../../assets/figures/en/fig-12-layer-map.svg)
+## Exclude annotation from cutting
 
-*Figures 03-1…03-5 diagrams, not screenshots.*
+In ex01, CUT contains the rectangle and holes; MARK contains a text label. These are DXF source-layer names. MARK does not automatically mean marking or non-machining.
 
-## What you will learn
+Use the matching version’s DXF layer mapping to assign CUT to the intended machining layer. Assign annotation to a non-machining layer, or explicitly exclude it from the working copy. Check the target-layer settings: changing display colour alone is not proof of a process assignment.
 
-Explain layer mapping, leads, kerf compensation, and the difference between **ordinary micro joints / seamless micro joints / cooling points**; finish process prep for the plate.
+![Classic CypCut layer settings](../../assets/screenshots/bochu-cypcut/layer-cut.png)
 
-## Prerequisites and version scope
+*This official image identifies the settings window. Its speed, power and pressure values are not a recipe for this exercise.*
 
-Chapter 02. CypCutE §3.1–3.4, §3.16 (based on 6.4.2310). CypCutPro §3.3 micro joint, §3.4 cooling point (PDF 44–45 / printed 31–32).
+In [ex07](../../exercises/dxf/ex07-layer-process.dxf), a P-01 mark would need an appropriate marking process if it is intended on the part. Text used only as annotation stays out of machining. Check whether your version imports text directly or requires outline conversion.
 
-## 1. Layers: mapping semantics
+## Place the pierce point in waste
 
-Never say “a DXF layer name decides machining by itself”. Correct chain:
+Piercing establishes a cut through solid sheet. Its local heating and spatter differ from steady cutting. Starting directly on the finished edge may leave a defect there. A lead-in starts in waste and joins the required contour.
 
-1. **DXF source layer** (any name: CUT / MARK / TEXT0).
-2. After import, **DXF layer mapping** points to a **software target layer**.
-3. Target layer attributes: can be “do not machine”; some builds use last two layers for first/last order.
-4. **Layer parameters** hold cut/mark process settings. Names do not auto-assign process.
+![Retained material determines lead direction](../../assets/screenshots/bochu-cypcut/inner-outer.png)
 
-![ex07 preview](../../assets/previews/en/ex07-layer-process.png)
+*In the left example, material outside the circle remains, so the lead enters from inside. In the right example, the circular part remains, so the lead enters from outside.*
 
-*Figure 03-6 exercise ex07: source layers CUT / MARK / TEXT0.*
+Select each hole and add a lead, checking that its pierce point lies inside the circle. Select the outer rectangle and place its start outside the part. Zoom in and make sure leads do not cross nearby retained profiles. Automatic placement still needs inspection.
 
-## 2. Outer/inner profiles and leads
+In offline practice, compare positions and directions using a clearly identified exercise copy. Production lead length depends on material thickness and piercing conditions. A software default is not an approved process value.
 
-Classify by enclosure: outermost is outer profile, next inner, and so on. Open curves cannot form a profile layer.  
-Outer (positive cut) leads enter from outside; inner (negative cut) leads enter from inside.  
-Auto leads may overwrite placement; use lead check to avoid crossings.
+## Compensation moves the toolpath
 
-## 3. Kerf compensation
+Take a geometry-only example: nominal width 80 mm and an assumed kerf width of 0.20 mm. Following the nominal boundary removes half a kerf from each side, leaving about 79.80 mm. Moving each side of the toolpath outward by 0.10 mm places the ideal cut edges back on the drawing boundary.
 
-- **Measure kerf from real cuts** (manual wording).
-- The offset path is machined; the design outline is display only.
-- Inner shrinks, outer grows (or set manually).
-- Corner style: fillet or square.
+Under the same ideal model, following an 8 mm circle makes an opening of about 8.20 mm; its path needs to move inward. The assumed 0.20 mm is an explanation, not a recommended kerf value.
 
-*The short bridge in figure 03-2 marks design→toolpath offset ≈ ½ kerf, not a dimension callout.*
+![Outer-profile offset geometry](../../assets/figures/en/fig-06-kerf.svg)
 
-## 4. Micro joints vs cooling points (do not mix)
+Check whether your compensation dialog asks for kerf width or offset distance. Enter the quantity it actually requests. Do not halve the input merely because the physical offset is half the kerf. Production values should come from measured cutting results.
 
-| Feature | Purpose | At that point | Source |
-|---|---|---|---|
-| **Ordinary micro joint** | Keep a tiny uncut link so the part **does not tip/warp** | **Laser off**; gas/follow per short rapid settings | CypCutPro §3.3 (PDF 44 / printed 31) |
-| **Cooling point** | **Reduce corner burn** | Short dwell + laser off + **timed gas cool**, then resume | CypCutPro §3.4 (PDF 45 / printed 32) |
-| **Seamless micro joint** | Cleaner break-away | **Reduced power** beam (not necessarily full off); root ratio adjustable | CypCutPro advanced parameters |
+Inspect the resulting path: outside the rectangle, inside the holes. Also check that compensation has not already been applied in CAD. Scaling the entire drawing changes hole spacing and cannot replace kerf compensation.
 
-Notes:
+## A micro joint retains material; a cooling point adds a pause
 
-- Do not generalize “laser off” to every micro-joint type.
-- Cooling dwell is the “cooling point delay” gas default parameter.
-- Micro joints split curves; you may need to explode before adding leads (E manual context).
+A fully separated part can tip or lose support. A conventional micro joint leaves a short material connection. A cooling point turns the beam off and applies the configured blowing delay before continuing, addressing local heat accumulation.
 
-## 5. Running case
+| Feature | Intended result | What to inspect |
+|---|---|---|
+| Conventional micro joint | A small material connection remains | Position relative to mating edges; suitable length |
+| Cooling point | Cutting continues around the complete contour | Actual need for corner cooling and a justified delay |
+| Seamless micro joint | A controlled remaining root assists removal | The relevant Pro function and root settings; not necessarily beam-off |
 
-1. Outer frame outer profile; two holes inner.  
-2. Leads: into holes from inside; into frame from outside.  
-3. Kerf: measured; inner shrink, outer grow.  
-4. Micro joints: 1–2 on non-mating edges against tipping.  
-5. For sharp corners that burn: add a **cooling point**, not a micro joint pretending to be one.  
-6. Order: holes → outer.  
-7. Simulate.
+In an exercise copy, add one conventional joint on a non-mating straight edge of the outer profile. Inspect the mark, remove it and compare the path. Demonstrate a cooling-point mark separately. You do not need every optional feature on the first plate. Joints on hole slugs depend on support and the job; “never use them on holes” is not a universal rule.
 
-## Exercises
+## Save a result you can inspect
 
-1. Which side for outer leads? Inner?
-2. Where does kerf width come from?
-3. Laser on/off at an ordinary micro joint? Why is a cooling point different?
-4. Write the four-step layer chain.
-5. Use ex01 for outer/inner and order.
+Keep a clean-geometry copy and a separate prepared machining copy. Reopen the latter and check annotation exclusion, lead placement, compensation direction and joint marks.
 
-## Answers and criteria
+<details>
+<summary>If the outside is undersize and the holes oversize, should you enlarge the drawing?</summary>
 
-1. Outer from outside (positive); inner from inside (negative).
-2. Measured from real cuts.
-3. **Off**. Cooling points dwell, cool with gas, and protect corners — different purpose.
-4. Source → map → target layer → layer process.
-5. Holes first, outer last.
+Not as a general correction. Scaling changes designed hole spacing and cannot address opposite inside/outside errors. First establish correct imported dimensions, then check compensation, direction and the measured kerf basis.
 
-**Criteria**: three features not conflated; no “layer-name magic”.
+</details>
 
-## Common mistakes
-
-- Writing cooling-point behavior into micro-joint definition.
-- Treating kerf as scaling the drawing.
-- Assuming TEXT0 never machines because of its name.
-
-## Sources
-
-- CypCutE §3.1–3.4, §3.16 (based on 6.4.2310)
-- CypCutPro §3.3 / §3.4 / seamless micro joint (7.1.2432.5)
-- exercises ex01, ex07
+References: CypCutE V7.1 §§3.1–3.4 and 3.16; CypCutPro V1.0.0 §§3.3–3.4 and table 5-2; [official process tutorial](https://www.bochu.com/tutorials/basics-technique-setting/).
 
 ---
 
-[Previous / Import Drawings and Check Dimensions](02-import-drawings.md) · [Next / Nesting, Sorting, and Simulation](04-nesting-sorting-simulate.md)
-
-[简体中文](../zh-CN/03-leads-kerf-microjoints.md) | [English](./03-leads-kerf-microjoints.md)
+[← Clean and check the drawing](02-import-drawings.md) · [Contents](README.md) · [Plan the cutting sequence →](04-nesting-sorting-simulate.md)

@@ -1,70 +1,32 @@
-# 12 · Daily Checks, Consumables, and Maintenance Boundaries
+# 12 · Inspect consumables and record maintenance
 
-[简体中文](../zh-CN/12-maintenance-boundaries.md) | [English](./12-maintenance-boundaries.md)
+[简体中文](../zh-CN/12-maintenance-boundaries.md) · [English](./12-maintenance-boundaries.md)
 
-[Previous / Common Exceptions: Triage and Feedback](11-exceptions-feedback.md) · [Next / Three Complete Practice Projects](13-three-projects.md)
+Maintenance does not begin by dismantling the head whenever an edge looks poor. Establish what can be inspected, which consumables match the installed head, and which work requires its dedicated procedure.
 
-## What you will learn
+Daily records can cover visible nozzle/ceramic condition, replacement history, cooling/extraction status and machine messages. Optical cleaning, window removal, gas-circuit and electrical work need the relevant model’s method, environment and safe-state requirements. A generic “clean the lens daily” instruction is not valid for every head.
 
-Look up maintenance by exact model, keep your own log, stay out of optical internals.
-
-## Prerequisites and version scope
-
-Chapter 05. Cycles are **per head/laser model**. Do not merge one universal calendar.
-
-## 1. Example cycles by source (not universal)
-
-| Cycle | Item | Typical source wording |
+| Item | Record | Reference |
 |---|---|---|
-| Daily | protective window check/wipe | Bochu head care article |
-| 3 months | seal replacement | same |
-| Weekly | cover/window clean | RayTools head manuals |
-| 2–3 months | collimator / focus lens | same |
-| Monthly | coolant and filters | Maxphotonics laser manual |
-| 3 months | racks / tank / cable chains | laser machine care articles |
-| On prompt | software maintenance / lube | CypCutPro / Empower modules |
+| Nozzle | Family, aperture, visible damage, replacement reason | Machine process sheet and head instructions |
+| Ceramic | Visible condition, related alarms and replacement history | Model-specific inspection/assembly procedure |
+| Protective window | Position, part number and inspection outcome | Model manual and parts list |
+| Cooling/extraction | Readiness, abnormalities and maintenance date | Auxiliary-equipment instructions |
 
-**No universal nozzle life in days** — use condition criteria: out-of-round bore, burn inside tip, unstable height sensing, one-sided dross, crash → replace.
+## A diameter alone is insufficient
 
-## 2. Protective window specs
+Window dimensions and requirements differ by head and installation position. Identify the complete head model, window position and part number when ordering. Resolve revision differences against the equipment list or supplier confirmation. A similar diameter in another manual does not establish compatibility.
 
-Specs differ by head model. Check the **physical model and seat**. No single universal size.
+## Re-establish readiness after replacement
 
-## 3. Boundaries
+Record what changed, why, and which part was installed. Complete the specified assembly checks and calibration before returning to work. A new nozzle does not remove the need to verify head and following condition.
 
-| Operator | Specialist |
-|---|---|
-| visual checks, logging, nozzle change per head manual | optics internals, laser source, electrical install |
-| software prompts for lube points | servo / platform configuration |
-| stop and escalate | bus-level recovery |
+Keep maintenance schedules separated by equipment. Do not combine several manufacturers’ daily, weekly and quarterly intervals into one universal calendar. Where no documented nozzle life in days exists, record condition, damage and process performance instead of inventing a fixed replacement age.
 
-## Exercises
+Exercise: two protective-window specification tables disagree. First determine which head and position each describes, rather than choosing the closer-looking diameter.
 
-1. Why no universal maintenance calendar?
-2. When to replace a nozzle?
-3. What is clearly specialist work?
-
-## Answers and criteria
-
-1. Models and parts differ.  
-2. Condition criteria, not day counts.  
-3. Optics / source / electrical / servo setup.
-
-**Criteria**: table-by-source; no scope creep.
-
-## Common mistakes
-
-- Applying head A weekly routine to head B.
-- DIY collimator/focus disassembly.
-
-## Sources
-
-- Bochu head care article
-- RayTools BM111/BS06K cleaning sections
-- laser source manuals (water/filters, model-specific)
+References: installed head, laser and auxiliary-equipment manuals; the [source index](sources.md) identifies the references reviewed for this guide.
 
 ---
 
-[Previous / Common Exceptions: Triage and Feedback](11-exceptions-feedback.md) · [Next / Three Complete Practice Projects](13-three-projects.md)
-
-[简体中文](../zh-CN/12-maintenance-boundaries.md) | [English](./12-maintenance-boundaries.md)
+[← Investigate a cutting problem](11-exceptions-feedback.md) · [Contents](README.md) · [Three practical projects →](13-three-projects.md)

@@ -1,85 +1,40 @@
-# 05 · From Screen to Machine: Parts and Pre-Start Checks
+# 05 · Understand the machine’s operating conditions
 
-[简体中文](../zh-CN/05-machine-and-prestart.md) | [English](./05-machine-and-prestart.md)
+[简体中文](../zh-CN/05-machine-and-prestart.md) · [English](./05-machine-and-prestart.md)
 
-[Previous / Nesting, Sorting, and Simulation](04-nesting-sorting-simulate.md) · [Next / Homing, Coordinates, and Calibration](06-homing-calibration.md)
+On the computer, a mistake often appears as incorrect geometry or a bad path. At the machine, the same file also depends on sheet support, head condition, gas, cooling and guarding. Start by understanding what the cutting head needs rather than memorising switches from another machine.
 
-## What you will learn
+## Follow the supporting systems
 
-Recognize head, gas, water, exhaust, and motion zones; use a pre-start checklist. `Supervised on machine`
+The optics focus the beam, the nozzle directs assist gas, and the ceramic/sensing assembly contributes to height detection. Sheet height can vary, so following requires a valid calibration relationship. Protective-window locations and specifications belong to the particular head; another machine’s spare-part dimensions are not a substitute.
 
-## Prerequisites and version scope
+Cooling circuits serve the laser or optical components. Extraction handles cutting fumes. Gas supply must provide the identified gas under the required supply conditions. The bed supports the sheet. Software settings rely on these physical conditions being present.
 
-Chapter 04. This chapter is **parts + check principles**. Concrete power-on buttons/order are `Pending machine verification` and follow the machine SOP.  
-**Do not** rewrite first-time electrical installation energizing tests as daily power-on.
-
-## 1. Zones you must know
-
-| Zone | Look at | Failure mode |
+| Observation | What it affects | First check |
 |---|---|---|
-| Cutting head | nozzle, protective windows, ceramic, follow | dross, power loss, bad follow |
-| Gas | supply gauge setting, process gas, nozzle cooling gas | burned tip, incomplete cut, burr |
-| Water | level / temp / alarms | condensation, overheating |
-| Exhaust | suction working, ventilation | fume hazard |
-| Motion | rack, slats, travel, e-stop | head crash, plate crash |
+| Damaged nozzle opening | Gas flow and head condition | Installed nozzle specification and head inspection procedure |
+| Poorly supported or raised sheet | Following and travel clearance | Loading and support requirements |
+| Uncertain or insufficient gas | Whether recipe conditions are met | Gas identification, supply state and recipe |
+| Cooling or extraction problem | Readiness to operate | Equipment status and machine procedure |
 
-## 2. Three “pressures” are not the same
+These are investigation starting points, not one-to-one fault diagnoses.
 
-| Concept | Where it acts | Example |
-|---|---|---|
-| Supply gauge setting | cylinder regulator / gauge | one M-series doc: N2 2.0 MPa, O2 0.8 MPa (**gauge setup context**) |
-| Software/valve output | controller gas settings | from your process table |
-| Actual pressure at nozzle | nozzle exit | CypCutPro pressure calibration maps DA valve to **nozzle** pressure (**BLT heads only**) |
+## Use the machine’s startup sequence
 
-Never promote a series gauge setting into universal cut pressure.
+The builder determines how mains power, cooling, laser, drives and auxiliaries are coordinated. Some actions use cabinet controls; others are handled by software or PLC logic. An installation power-on test is not a daily startup procedure.
 
-## 3. Pre-start checklist (principle)
+Locate the machine’s operating instructions and verify the expected ready state after each action. A clear software alarm bar does not establish that extraction is effective or that the sheet is supported.
 
-Actions come from the machine SOP. Use `templates/en/01-prestart-checklist.md`:
+## Complete one prestart check
 
-1. PPE and e-stop location.  
-2. Exhaust/ventilation ready.  
-3. Chiller level, temperature, alarms.  
-4. Gas bottle/air, leaks, gauge setting (record value + unit).  
-5. Head: nozzle and window condition.  
-6. Bed: slats, debris, limit switches visible.  
-7. Software alarm banner clean.
+Use the [prestart record](../../templates/en/01-prestart-checklist.md) to identify the machine, software, material, nozzle and recipe. Confirm the work area is clear, guarding/interlocks operate correctly, stopping controls are understood, and cooling, gas and extraction meet this machine’s requirements.
 
-`Offline practice`: write the checklist from memory. `Supervised on machine`: tick against SOP.
+Understand axis directions and travel areas before performing homing or other motion. Do not fire the laser merely to see whether the machine responds. Resolve an unfamiliar step through the machine instructions or a demonstration by someone competent with that equipment.
 
-## 4. Running case
+You have completed this chapter when you can explain the purpose of each check. Confirming gas identity, for example, establishes a recipe condition rather than merely filling a box.
 
-Before first plate: confirm stock → gas/nozzle match the process row → windows clean → exhaust on → e-stop released in the machine’s way.
-
-## Exercises
-
-1. Sketch five zones with one check each.
-2. Explain supply gauge setting ≠ process pressure.
-3. Which failures block start?
-
-## Answers and criteria
-
-1. See §1.  
-2. Gauge is at the source; process pressure varies with material/thickness/power/nozzle.  
-3. Examples: chiller alarm, gas leak, exhaust off, e-stop engaged, limit fault — per SOP.
-
-**Criteria**: no invented button locations; installation test ≠ daily power-on.
-
-## Common mistakes
-
-- Using 2.0/0.8 MPa as a universal process table.
-- Skipping window/nozzle condition.
-- Preparing beam-on with exhaust off.
-
-## Sources
-
-- GWEIKE M-series connection guide (gauge adjustment context)
-- GWEIKE GA installation checklist (exhaust qualitative)
-- Bochu head care article
-- Cutting-head manuals (model-specific)
+References: [GWEIKE installation requirements](https://www.gwklaser.com/about/technical/fiber-laser-cutter-installation-requirements-checklist.html) and the installed head/laser instructions. Startup order remains machine-specific.
 
 ---
 
-[Previous / Nesting, Sorting, and Simulation](04-nesting-sorting-simulate.md) · [Next / Homing, Coordinates, and Calibration](06-homing-calibration.md)
-
-[简体中文](../zh-CN/05-machine-and-prestart.md) | [English](./05-machine-and-prestart.md)
+[← Plan the cutting sequence](04-nesting-sorting-simulate.md) · [Contents](README.md) · [Coordinates, homing and calibration →](06-homing-calibration.md)

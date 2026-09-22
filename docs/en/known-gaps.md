@@ -2,7 +2,7 @@
 
 [简体中文](../zh-CN/known-gaps.md) | [English](./known-gaps.md)
 
-v0.1 may mark unverified items. These do not block the main learning path.
+v0.2 provides the complete reading path and exercise files. The checks below remain unfinished; record offline practice separately from real-machine validation.
 
 | ID | Gap | Impact | Status |
 |---|---|---|---|
@@ -14,7 +14,7 @@ v0.1 may mark unverified items. These do not block the main learning path.
 | G6 | Exhaust flow / explosion-proof numbers | qualitative only | keep |
 | G7 | No CypCutE/Pro screenshots | capture on the practice build | wait for machine |
 | G8 | Plus full licensing model | only “dongle removed as standard” known | verify |
-| G9 | XC7000 | no official existence evidence this round | wording downgraded |
+| G9 | XC7000 | no official existence evidence this round | unconfirmed |
 | G10 | Official English UI labels | Chinese labels + English glosses only | keep |
 | G11 | Tutorial videos not watched clip-by-clip | not used as procedure evidence | keep |
 | G12 | Default seamless micro-joint root ratio | no universal default in manual | verify |

@@ -1,0 +1,14 @@
+const menu=document.querySelector('.menu-button'),sidebar=document.querySelector('.sidebar');
+menu.addEventListener('click',()=>{const open=sidebar.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const activeDialog=document.querySelector('dialog[open]');if(activeDialog){e.preventDefault();activeDialog.close();}sidebar.classList.remove('open');menu.setAttribute('aria-expanded','false');}});
+document.querySelector('main').addEventListener('click',()=>{sidebar.classList.remove('open');menu.setAttribute('aria-expanded','false');});
+const search=document.querySelector('.search-dialog'),input=document.querySelector('#search-input'),results=document.querySelector('.search-results');
+let entries=null;
+async function openSearch(){search.showModal();input.focus();if(!entries){try{const r=await fetch(document.body.dataset.root+'search-index.json');if(!r.ok)throw Error();entries=await r.json();renderResults();}catch{results.textContent=document.body.dataset.lang==='en'?'Search could not load. Use the chapter list.':'搜索暂时无法加载，请使用章节目录。';}}}
+document.querySelector('.search-open').addEventListener('click',openSearch);
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&!search.open){e.preventDefault();openSearch();}});
+function renderResults(){results.replaceChildren();if(!entries)return;const q=input.value.trim().toLocaleLowerCase();if(!q)return;const hits=entries.filter(x=>x.lang===document.body.dataset.lang&&(x.title+' '+x.text).toLocaleLowerCase().includes(q)).sort((a,b)=>Number(b.title.toLocaleLowerCase().includes(q))-Number(a.title.toLocaleLowerCase().includes(q))).slice(0,15);if(!hits.length){results.textContent=document.body.dataset.lang==='en'?'No matches. Try another term.':'没有找到，试试其他词。';return;}for(const hit of hits){const a=document.createElement('a'),small=document.createElement('small');a.href=document.body.dataset.root+hit.path;a.textContent=hit.title;const at=Math.max(0,hit.text.toLocaleLowerCase().indexOf(q)-30);small.textContent=hit.text.slice(at,at+150)+'…';a.append(small);results.append(a);}}
+input.addEventListener('input',renderResults);
+const lightbox=document.querySelector('.image-dialog');
+for(const img of document.querySelectorAll('article img')){const open=()=>{lightbox.querySelector('img').src=img.src;lightbox.querySelector('img').alt=img.alt;lightbox.querySelector('p').textContent=img.alt;lightbox.showModal();};img.addEventListener('click',open);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});}
+for(const d of document.querySelectorAll('dialog'))d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});

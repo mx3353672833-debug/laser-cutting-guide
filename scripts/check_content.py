@@ -132,7 +132,7 @@ def check_links_and_images() -> None:
     missing = []
     abs_hits = []
     for md in ROOT.rglob("*.md"):
-        if ".git" in md.parts:
+        if ".git" in md.parts or "_site" in md.parts:
             continue
         text = md.read_text(encoding="utf-8")
         for m in ABS_BAD.finditer(text):
@@ -205,11 +205,11 @@ def check_dxf_report() -> None:
         return
     data = json.loads(report.read_text(encoding="utf-8"))
     ok("dxf-json", f"parsed json type={type(data).__name__}")
-    # optional ezdxf audit if available
+    # DXF parsing must actually run in local checks and CI.
     try:
         import ezdxf  # type: ignore
     except Exception:
-        ok("ezdxf", "ezdxf not installed in this runtime — skipped (CI may add later)")
+        fail("ezdxf", "Required dependency missing: install requirements.txt")
         return
     for ex in DXF_IDS:
         p = ROOT / "exercises" / "dxf" / f"{ex}.dxf"
@@ -218,8 +218,8 @@ def check_dxf_report() -> None:
             auditor = doc.audit()
             errs = len(auditor.errors)
             fixed = len(auditor.fixes)
-            if errs:
-                fail("ezdxf", f"{ex} audit errors={errs}")
+            if errs or fixed:
+                fail("ezdxf", f"{ex} audit errors={errs} fixes={fixed}")
             else:
                 ok("ezdxf", f"{ex} audit errors=0 fixes={fixed}")
         except Exception as e:
@@ -258,7 +258,8 @@ def check_content_markers() -> None:
         m = bad_re.search(text)
         if m:
             fail("editorial-leak", f"{md.relative_to(ROOT)} contains {m.group(0)}")
-    ok("editorial-leak", "no editor/agent jargon in docs" if True else "")
+    if not any(code == "editorial-leak" for _, code, _ in RESULTS):
+        ok("editorial-leak", "no editor/agent jargon in docs")
 
 
 def check_yaml_ci() -> None:
@@ -278,19 +279,14 @@ def main() -> int:
     check_dxf_report()
     check_content_markers()
     check_yaml_ci()
-    # cleanup placeholder from check_assets bug if any fail counted wrong — ignore
     n_pass = sum(1 for s, _, _ in RESULTS if s == "PASS")
     n_fail = sum(1 for s, _, _ in RESULTS if s == "FAIL")
-    lines = ["tutorial v0.1 content check", f"root={ROOT}", f"PASS={n_pass} FAIL={n_fail}",
+    lines = ["tutorial v0.2 content check", f"root={ROOT}", f"PASS={n_pass} FAIL={n_fail}",
              "note=document checks only; not hardware validation", ""]
     for st, code, msg in RESULTS:
         lines.append(f"{st}\t{code}\t{msg}")
     out = "\n".join(lines) + "\n"
-    out_path = ROOT.parent / "research" / "tutorial-v0.1-build" / "check-output.txt"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(out, encoding="utf-8")
     print(out)
-    print(f"[written] {out_path}")
     return 1 if n_fail else 0
 
 

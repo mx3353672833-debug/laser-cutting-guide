@@ -1,89 +1,60 @@
-# 04 · Nesting, Sorting, and Simulation
+# 04 · Plan the cutting sequence
 
-[简体中文](../zh-CN/04-nesting-sorting-simulate.md) | [English](./04-nesting-sorting-simulate.md)
+[简体中文](../zh-CN/04-nesting-sorting-simulate.md) · [English](./04-nesting-sorting-simulate.md)
 
-[Previous / Layers, Leads, Kerf, Micro Joints, and Cooling Points](03-leads-kerf-microjoints.md) · [Next / From Screen to Machine: Parts and Pre-Start Checks](05-machine-and-prestart.md)
+Three closed profiles on screen do not guarantee the intended machining order. We will turn the two holes and the outside profile into an inspectable job, then apply the same method to a three-part layout.
 
-![Sorting (diagram)](../../assets/figures/en/fig-09-sorting.svg)
-![Coordinates (diagram)](../../assets/figures/en/fig-10-coordinates.svg)
-![Simulate boundary (diagram)](../../assets/figures/en/fig-11-simulate-boundary.svg)
+## Complete the holes before the outside
 
-*Figures 04-1…04-3 diagrams.*
+Show machining order and check that both holes precede the outer profile. The order between the holes can depend on travel distance. For this exercise, establish the correct dependency before optimising cycle time.
 
-## What you will learn
+The CypCutE manual distinguishes order within a layer from order between layers. If changing a hole’s sequence does not change final playback, inspect its target layer and layer order rather than repeatedly sorting the graphic.
 
-Prepare single- and multi-part paths, check inner/outer order and stock frame, and separate software simulation from real machine motion.
+A micro-jointed outer profile may contain several cutting segments and short moves. Check that both holes finish before the outer profile finishes; do not require exactly three displayed path segments.
 
-## Prerequisites and version scope
+## Inspect four things during simulation
 
-Chapter 03. CypCutE sorting / nesting / §5.1 simulation (can run without the machine); CypCut tutorial Toolpath Planning.
+1. **The first start:** the intended lead-in begins the job.
+2. **Profile order:** both holes complete before the outer profile.
+3. **Cutting versus travel:** moves between profiles are travel moves, and annotation is excluded.
+4. **Completion:** intended profiles are processed without unintended repeats; deliberate retained sections match the joint settings.
 
-## 1. Sorting: inner first, outer last
+Play slowly at first. Stop at a discrepancy and change the relevant layer or sequence. Save, reopen and simulate again to verify that the delivered file retains the settings.
 
-- Cut holes/inner contours before outer outlines so parts do not drop early.
-- Minimize rapids between parts.
-- Groups can lock internal order.
+## Nesting adds sheet constraints
 
-![ex08 preview](../../assets/previews/en/ex08-multi-part-layout.png)
+[Ex08](../../exercises/dxf/ex08-multi-part-layout.dxf) contains three already-positioned parts with one hole each. SHEET is a 190 × 75 mm reference rectangle; NOTE is annotation.
 
-*Figure 04-4 exercise ex08: three single-hole parts + closed SHEET frame.*
+![Three single-hole parts and a sheet reference](../../assets/previews/en/ex08-multi-part-layout.png)
 
-## 2. Nesting and reference frame
+Explicitly exclude SHEET and NOTE from machining and confirm that they do not play as cutting paths. Their names do not provide that behaviour automatically. The part extents are x=10–60, 75–125 and 140–190; the sheet is x=5–195. Nominal left/right margins are therefore 5 mm and part gaps are 15 mm. These are exercise dimensions, not production recommendations.
 
-- Single proof: keep the part on stock with edge margin.
-- Multi-part: common-line/micro joints per site process; **SHEET is not a cut path**.
-- Map SHEET/NOTE to a non-machining target layer or exclude them and confirm in simulation.
+After adding leads and outward compensation, inspect actual toolpath clearance again. A nominal profile inside the border does not establish that its complete path fits. The real sheet, clamps, supports and required process margins must also be checked at the machine.
 
-## 3. Simulate vs dry run vs cut
+## What each check establishes
 
-| Action | Motion | Laser | Gas | Use |
-|---|---|---|---|---|
-| Software simulate | none (offline OK) | off | off | path and order |
-| Dry Run | **moves** | off | off (manual wording) | real envelope / interference |
-| Frame / border | moves | off (red pointer) | — | is the range on the plate? |
-| Cut | moves | on | on | parts |
+![Classic CypCut path comparisons](../../assets/screenshots/bochu-cypcut/frame-border-dryrun.png)
 
-`Offline practice`: software simulate.  
-`Supervised on machine`: dry run, frame, cutting.
+*Left to right: Frame, Border and Dry Run. Frame and Border do not traverse the complete machining sequence.*
 
-## 4. Checklist
+| Function | What it checks | What it does not establish |
+|---|---|---|
+| Software simulation | File order and screen paths | Real sheet position, physical clearance or cut-through |
+| Frame | Real travel around the bounding frame | Every internal path is clear |
+| Border, where available | Outermost profile boundary | The complete job route |
+| Dry Run | Real motion along the machining path; cited manual describes laser and gas off | First-part cutting quality |
 
-1. Inner before outer.  
-2. Frame/notes excluded.  
-3. Rapids/fixture risk.  
-4. Simulated part count matches.  
-5. Running case: 2 holes + 1 outer = 3 contour paths.
+Simulation completes the offline exercise. The real-motion checks need correct coordinates, sheet location and clearance first; see Chapters 6–7. Do not wait for the head to approach an obstruction before deciding whether the path is clear.
 
-## Exercises
+<details>
+<summary>Simulation starts by cutting the SHEET rectangle. What should change?</summary>
 
-1. How many parts and holes in ex08? What is SHEET?
-2. Differences among simulate / dry run / cut.
-3. A sensible order for ex08.
-4. Why does the name NOTE not auto-disable machining?
+Inspect source-to-target mapping and the target’s non-machining setting. Putting the frame last still leaves it in the cutting job. Re-run simulation after excluding it.
 
-## Answers and criteria
+</details>
 
-1. Three parts, one hole each; SHEET is a 190×75 closed stock reference.
-2. See the table.
-3. Example: each hole → each outer; parts 1→2→3.
-4. Source names must be mapped to target layers with attributes/process.
-
-**Criteria**: inner-first order; SHEET ≠ CUT; simulation does not fire the laser.
-
-## Common mistakes
-
-- Cutting outer first so the part drops.
-- Treating SHEET as a cut line.
-- Using simulation instead of real dry-run safety checks.
-
-## Sources
-
-- CypCutE sorting/nesting/simulate (based on 6.4.2310)
-- CypCut tutorials Toolpath Planning / Machining Precheck
-- exercises ex06, ex08
+References: CypCutE V7.1 §§3.18, 4.5–4.6 and 5.1; [Bochu machining precheck](https://www.bochu.com/tutorials/basics-machining-precheck/).
 
 ---
 
-[Previous / Layers, Leads, Kerf, Micro Joints, and Cooling Points](03-leads-kerf-microjoints.md) · [Next / From Screen to Machine: Parts and Pre-Start Checks](05-machine-and-prestart.md)
-
-[简体中文](../zh-CN/04-nesting-sorting-simulate.md) | [English](./04-nesting-sorting-simulate.md)
+[← Put the toolpath in the right place](03-leads-kerf-microjoints.md) · [Contents](README.md) · [Understand the machine’s operating conditions →](05-machine-and-prestart.md)

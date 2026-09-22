@@ -1,51 +1,39 @@
-# Laser Cutting Guide · 激光切割操作入门
+# 激光切割操作入门 · Laser cutting guide
 
-[简体中文](docs/zh-CN/README.md) | [English](docs/en/README.md)
+从一张双孔连接片图纸开始，逐步完成图纸检查、加工路径、机器准备和首件检验。中文和英文使用同一套零件、图解与练习。
 
-Bilingual practical guide v0.1 for laser-cutting sales people: prepare machining files (Bochu first), complete a supervised first article, run simple demos, then migrate concepts to Raytools / Empower.
+Follow a two-hole mounting plate from drawing checks through toolpath preparation, machine setup and first-part inspection. The Chinese and English editions share the same examples and exercises.
 
-中英文双语实操教程 v0.1：先学柏楚准备加工文件与带教上机，再迁移到嘉强。
+## 开始阅读 · Read the guide
 
-## Start
+| | 网页阅读 / Reader | GitHub 文档 / Markdown |
+|---|---|---|
+| 简体中文 | [进入教程](https://mx3353672833-debug.github.io/laser-cutting-guide/docs/zh-CN/00-start-here.html) | [第一章](docs/zh-CN/00-start-here.md) · [目录](docs/zh-CN/README.md) |
+| English | [Open the guide](https://mx3353672833-debug.github.io/laser-cutting-guide/docs/en/00-start-here.html) | [Start here](docs/en/00-start-here.md) · [Contents](docs/en/README.md) |
 
-| Language | Start here |
-|---|---|
-| 简体中文（自学主线） | [docs/zh-CN/learn/00-why-this-works.md](docs/zh-CN/learn/00-why-this-works.md) |
-| 简体中文（参考目录） | [docs/zh-CN/00-start-here.md](docs/zh-CN/00-start-here.md) |
-| English (self-study) | [docs/en/learn/00-why-this-works.md](docs/en/learn/00-why-this-works.md) |
-| English (reference) | [docs/en/00-start-here.md](docs/en/00-start-here.md) |
+![80 × 40 mm mounting plate](assets/figures/en/workpiece.svg)
 
-## What is inside
+## 一条路线，三个阶段 · One course, three stages
 
-- 16 chapters (00–15) in both languages
-- 12 shared diagrams, 8 DXF exercises with previews and answers
-- Fill-in templates, glossary, version scope, sources, known gaps
-- Local checker `scripts/check_content.py` and GitHub Actions
+- **00–04**：在电脑上检查尺寸、分层、引线、补偿和模拟。Check dimensions, layers, leads, compensation and simulation.
+- **05–09**：认识机器条件、定位、工艺与首件检查。Understand readiness, location, recipes and first-part inspection.
+- **10–15**：学习恢复、排查、练习交付与嘉强迁移。Learn recovery, investigation, job handover and RayTools migration.
 
-## Safety and scope
+[8 个 DXF 与答案 / Exercises](exercises/README.md) · [中文术语](docs/zh-CN/glossary.md) · [Glossary](docs/en/glossary.md)
 
-- Before first beam-on: memorize the safety checklist in `learn/05-first-on-machine.md` (e-stop, guards, exhaust). Follow **that machine’s SOP**; a helper is useful but the checklist is the floor.
-- Demo mode / software simulation is not beam-on control.
-- Process numbers stay tied to material, thickness, head, nozzle, gas, and a verified process row.
-- v0.1 is not a vendor certified course and has not been validated on a live machine.
+本教程区分手册依据、软件演示和真实加工。当前尚未完成匹配软件的逐步实测及实机切割验证，详见[版本与范围](docs/zh-CN/version-scope.md)。
 
-## Repository layout
+The guide distinguishes documented behaviour, software demonstration and real machining. Matched-software walkthroughs and physical cutting trials remain unverified; see [scope](docs/en/version-scope.md).
 
-```text
-docs/zh-CN  docs/en     chapters and extras
-assets/figures  previews
-exercises/dxf  answers  scripts
-templates/zh-CN  en
-scripts/check_content.py
-```
+## 维护 · Maintenance
 
-## Check locally
+[贡献 / Contribute](CONTRIBUTING.md) · [更新 / Changes](CHANGELOG.md) · [来源 / Attribution](ATTRIBUTION.md) · [License policy](LICENSE-POLICY.md)
 
 ```bash
-python3 scripts/check_content.py
+python -m pip install -r requirements.txt
+python scripts/check_content.py
+python scripts/build_site.py
+python scripts/check_site.py
 ```
 
-## License and attribution
-
-Original tutorial text and original diagrams in this repository: see [LICENSE-POLICY.md](LICENSE-POLICY.md).  
-Third-party manuals and vendor pages are **not** redistributed here; see [ATTRIBUTION.md](ATTRIBUTION.md).
+The reader is generated from the same Markdown files. No second copy of the course is maintained.

@@ -7,3 +7,5 @@ research/
 *.pdf
 !docs/**/*.pdf
 .ipynb_checkpoints/
+
+_site/

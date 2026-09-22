@@ -1,26 +1,15 @@
-# Roadmap · 路线图
+# Roadmap · 后续完善
 
-## v0.1（本版）
+## 已完成 / Available in v0.2
 
-能读、能离线练、能按表单带教记录。中英双语齐全。
+中英 16 章、8 个 DXF、图解与答案、可填写表单，以及复用同一套 Markdown 的阅读站。 / Sixteen bilingual chapters, eight DXF exercises, illustrations, answers, fill-in records and a reader built from the same Markdown.
 
-## v0.2 候选
+## 下一轮 / Next
 
-- 练习机确定后的 UI 截图（中英界面）  
-- 实机首件与切面对比图（自有授权）  
-- 真实工艺行脱敏示例  
-- 无痕微连/冷却点实机验证笔记  
-- GitHub Pages 站点（复用同一 Markdown，不维护第二套课）
+- 确定练习机与运行软件版本，逐项记录真实导入结果。 / Identify the training machine and software build; record actual import behavior.
+- 补充对应版本的自有界面截图与操作记录。 / Add original screenshots and operation notes for that version.
+- 拍摄带尺寸与工艺条件的首件和缺陷对照。 / Photograph first parts and defects with dimensions and process conditions.
+- 在技术人员带教下验证日常开关机、标定与续切。 / Validate daily startup, calibration and recovery with the machine technician.
+- 记录嘉强同一练习的操作差异。 / Repeat the exercises in RayTools and document the differences.
 
-## v0.3+ 候选
-
-- 更多切割头/激光器型号实例  
-- 嘉强实机迁移实验  
-- 视频时间戳索引  
-- 教案版（给带教用一页纸）
-
-## 明确不做 / Out of scope
-
-- 不发布厂商 PDF 原件  
-- 不提供绕过联锁/关闭保护方法  
-- 不把研究包原文直接当教程正文
+每项以真实记录推进；软件验证、机床动作和切割质量分别标注。 / Record software validation, machine motion and cut quality separately.

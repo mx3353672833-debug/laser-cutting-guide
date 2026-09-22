@@ -1,0 +1,58 @@
+{
+  "slugs": [
+    "00-start-here",
+    "01-bochu-systems",
+    "02-import-drawings",
+    "03-leads-kerf-microjoints",
+    "04-nesting-sorting-simulate",
+    "05-machine-and-prestart",
+    "06-homing-calibration",
+    "07-plate-edge-dryrun",
+    "08-process-tables-first-part",
+    "09-first-cut-inspection",
+    "10-pause-resume-tasks",
+    "11-exceptions-feedback",
+    "12-maintenance-boundaries",
+    "13-three-projects",
+    "14-demo-events",
+    "15-raytools-migration"
+  ],
+  "titles": {
+    "zh-CN": [
+      "从一张图开始",
+      "认清软件，找到工作区",
+      "把图纸检查干净",
+      "让刀路落在正确的位置",
+      "把一件零件排成加工顺序",
+      "认识机器的操作条件",
+      "坐标、回原点与标定",
+      "让图纸对准板材",
+      "读懂一行切割工艺",
+      "切第一件，也检查第一件",
+      "暂停以后，怎样接着做",
+      "从异常现象找到检查入口",
+      "耗材检查与维护记录",
+      "三个完整练习",
+      "准备一次可重复的演示",
+      "把柏楚经验带到嘉强"
+    ],
+    "en": [
+      "Start with one drawing",
+      "Find your software and workspace",
+      "Clean and check the drawing",
+      "Put the toolpath in the right place",
+      "Plan the cutting sequence",
+      "Understand the machine’s operating conditions",
+      "Coordinates, homing and calibration",
+      "Locate the job on the sheet",
+      "Read a cutting recipe",
+      "Cut and inspect the first part",
+      "Resume a stopped job",
+      "Investigate a cutting problem",
+      "Inspect consumables and record maintenance",
+      "Three practical projects",
+      "Prepare a repeatable demonstration",
+      "Transfer your skills to RayTools"
+    ]
+  }
+}

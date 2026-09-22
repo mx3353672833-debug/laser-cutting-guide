@@ -1,76 +1,43 @@
-# 09 · First Cut and Inspection Record
+# 09 · Cut and inspect the first part
 
-[简体中文](../zh-CN/09-first-cut-inspection.md) | [English](./09-first-cut-inspection.md)
+[简体中文](../zh-CN/09-first-cut-inspection.md) · [English](./09-first-cut-inspection.md)
 
-[Previous / Read Process Tables and Prepare the First Part](08-process-tables-first-part.md) · [Next / Pause, Stop, Breakpoints, and Tasks](10-pause-resume-tasks.md)
+A first part checks the combined result of file preparation, machine condition, recipe and actual material. Start with a small trial and inspect it before committing a full sheet.
 
-## What you will learn
+## Confirm the checked job is still the active job
 
-Supervised trial cut; record size, full penetration, burr, distortion; keep a parameter-result log.
+Verify filename, material, target layers, recipe and zero. Confirm that neither the sheet nor program changed after placement and path checks. Start according to the machine procedure and observe through the permitted means. Use the specified stop response for abnormalities; do not reach into the motion area to adjust material.
 
-## Prerequisites and version scope
+Before removal, follow the machine’s safe-state and hot-part handling procedure. If the part remains attached, distinguish planned micro joints from unintended incomplete cutting. Forcing it free can hide the defect.
 
-Chapter 08. `Supervised on machine`. The four quality dimensions are an **observation frame**, not a pass/fail standard.
+## Inspect the plate
 
-## 1. First-part flow (supervised)
+Measure both overall dimensions and both hole diameters. Check centre spacing using the drawing’s required inspection method. Calipers do not directly grip a hole centre: the inner gap between equal holes is not the centre distance. The method and its uncertainty must suit the inspection requirement.
 
-1. Re-check process row vs machine/nozzle/gas.  
-2. Frame / red pointer envelope.  
-3. Beam-on cut the plate.  
-4. Stop and unload per SOP.  
-5. Inspect and record.
-
-## 2. Inspection items
-
-| Item | How | Record |
+| Observation | Record first | Investigation direction |
 |---|---|---|
-| Outline size | calipers 80 / 40 and hole spacing | measured |
-| Full cut-through | backside separated? | yes/no + note |
-| Burr / dross | bottom and holes | severity + place |
-| Corner burn | corners / lead points | yes/no |
-| Distortion | flatness / square | degree |
-| Striation | visual / loupe | coarse/fine |
+| Outside undersize, holes oversize | Actual external and hole measurements | Imported size, compensation and kerf basis |
+| Local roughness on one side/corner | Location and cutting direction | Local path, support, process and head condition |
+| Dross or incomplete cutting | Material, location and whether local/continuous | Recipe match, gas supply and nozzle condition |
+| Part distortion | Location and support arrangement | Heat, sequence and support |
 
-*v0.1 gap: no authorized good/bad face photo set — take your own samples.*
+These organise investigation; none alone proves a single parameter caused the problem.
 
-## 3. Micro joint / cooling point on the first part
+## A worked inspection decision
 
-- Micro joints remain as small links; part should not fly loose.  
-- Cooling points reduce corner burn.  
-- Seamless micro joints leave smaller marks but still link.
+This is a fictional measurement exercise. If a drawing specifies 80.00 ± 0.10 mm and the part measures 79.70 mm, that dimension fails. A shiny surface does not change the result. Without a specified tolerance, record the measurement rather than inventing an acceptance limit.
 
-## 4. First-article form
+Keep the recipe revision and photo locations with the result. “Dross on the underside of the right-hand edge, photo B” is more useful than “poor quality.” Use the [inspection record](../../templates/en/02-first-article-inspection.md) for release status, reviewer and next action.
 
-Use `templates/en/02-first-article-inspection.md`. Keep material, row, nozzle, gas, results, photo id, release decision.
+<details>
+<summary>Does a micro-jointed part remaining attached necessarily indicate incomplete cutting?</summary>
 
-## Exercises
+No. Check whether connections match the intended joint locations and whether the remaining profiles are complete. Attachment elsewhere needs investigation.
 
-1. Six inspection items?
-2. What is the four-dimension frame? Equal to pass criteria?
-3. First checks for incomplete cut? (manual clues)
+</details>
 
-## Answers and criteria
-
-1. Size, through-cut, burr, burn, distortion, face.  
-2. Roughness / burr / squareness / kerf; **not** the pass standard.  
-3. Nozzle vs thickness match, speed too high, etc.
-
-**Criteria**: traceable record; no “good” without tolerances.
-
-## Common mistakes
-
-- Photos without process row.
-- Using the four dimensions as the drawing tolerance.
-- Continuing batch while incomplete.
-
-## Sources
-
-- Sino-Galvo four criteria article
-- Bochu common cutting problems article
-- CypCutPro micro joint / cooling point sections
+References: CypCutPro V1.0.0 §§3.3–3.4; [Bochu cutting problem analysis](https://www.bochu.com/pro_information/激光切割常见问题分析及解答/). Drawing and local inspection requirements determine acceptance.
 
 ---
 
-[Previous / Read Process Tables and Prepare the First Part](08-process-tables-first-part.md) · [Next / Pause, Stop, Breakpoints, and Tasks](10-pause-resume-tasks.md)
-
-[简体中文](../zh-CN/09-first-cut-inspection.md) | [English](./09-first-cut-inspection.md)
+[← Read a cutting recipe](08-process-tables-first-part.md) · [Contents](README.md) · [Resume a stopped job →](10-pause-resume-tasks.md)

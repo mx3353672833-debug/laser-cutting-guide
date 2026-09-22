@@ -1,88 +1,41 @@
-# 08 · Read Process Tables and Prepare the First Part
+# 08 · Read a cutting recipe
 
-[简体中文](../zh-CN/08-process-tables-first-part.md) | [English](./08-process-tables-first-part.md)
+[简体中文](../zh-CN/08-process-tables-first-part.md) · [English](./08-process-tables-first-part.md)
 
-[Previous / Plate Setup, Edge Finding, Frame, and Dry Run](07-plate-edge-dryrun.md) · [Next / First Cut and Inspection Record](09-first-cut-inspection.md)
+When someone gives you a process table, first identify the equipment, material and thickness it applies to. Then read speed, pressure and focus. An isolated speed value does not describe a usable recipe.
 
-## What you will learn
+## Establish the conditions behind the row
 
-Match material, thickness, head, nozzle, and gas to a **whole process row**, and prep the first part.
-
-## Prerequisites and version scope
-
-Chapter 07. Values must stay conditional. The practice machine uses **its verified process sheet**. Local tables and nozzle guides are conditional references only.
-
-## 1. Condition columns
-
-Every row needs:
-
-| Condition | Why |
+| Condition | Why it matters |
 |---|---|
-| Laser model / power / fiber / optics | energy and focus |
-| Material and thickness | melt and blow-away |
-| Head and nozzle type/bore | symmetric jet |
-| Gas | O2 exothermic / N2 speed and clean edge |
-| Speed, power, pressure, focus, stand-off | surface quality together |
+| Material and thickness | Identifies the relevant process family |
+| Laser, power and optical configuration | Equal nominal power does not guarantee equal optical conditions |
+| Head, nozzle family and aperture | Determines mechanical and gas-flow compatibility |
+| Gas and supply conditions | Different gases are not interchangeable based on pressure alone |
+| Piercing versus cutting stage | Height, power and timing may differ between stages |
 
-Quote **whole rows**. Never lift one pressure into another material.
+Once those conditions match, read speed, power, pressure, focus and height with their units. Pay attention to m/min versus mm/s and bar versus MPa: 1 MPa = 10 bar; 1 m/min is about 16.67 mm/s.
 
-## 2. Nozzle reference (not a hard threshold)
+## Pressure at different locations
 
-The GWEIKE nozzle guide lists S/D/E/B/SP and power bands, but states it is an **engineering starting reference**. Final call is the installed head and machine process table, with configuration exceptions.  
-6 kW / 8 kW change-over hints are **not** exception-free rules.  
-Stand-off around 0.5–1.0 mm is a reference scale only.
+A supply gauge describes upstream supply conditions. Software process pressure is a machining setting. Actual nozzle pressure also depends on the gas circuit and control relationship. The M-series example of nitrogen 2.0 MPa and oxygen 0.8 MPa describes supply-gauge settings in that documentation; it is not a recipe for your plate.
 
-## 3. Gauge setting vs process pressure
+Focus signs also depend on the head and software definition. Copying an F value without its datum and sign convention can change its meaning.
 
-N2 2.0 MPa / O2 0.8 MPa in one series installation doc is a **supply gauge setting** example — not your plate process pressure.
+## Practise with an incomplete recipe
 
-## 4. First-part prep sheet
+Suppose a row says only “2 mm stainless, nitrogen, speed …” and omits head, nozzle, laser power and provenance. It helps identify questions, but is not a complete first-part recipe. Obtain the missing conditions and a matching builder-supplied or locally validated process before preparing the machining copy.
 
-1. Measured stock grade/thickness.  
-2. Matching process row (head/nozzle/gas).  
-3. Nozzle condition and bore.  
-4. Focus policy from the row.  
-5. Program: plate, inner first.  
-6. Gauges: calipers, square, light.
+A nozzle guide is also a conditional reference. Do not choose solely from a universal 6 kW or 8 kW threshold; the manufacturer’s guide includes configuration exceptions.
 
-## 5. Case table (fill on site)
+## Make the setup reproducible
 
-| Item | On site |
-|---|---|
-| Material / thickness | |
-| Nozzle | |
-| Gas / gauge reading | |
-| Row: speed/power/pressure/focus | |
-| Micro joint / cooling point? | |
+In the [first-part record](../../templates/en/02-first-article-inspection.md), identify material, thickness, machine, nozzle, gas, recipe source and units. Record which row was used and what changed. Mark missing values as unavailable rather than filling them with software defaults.
 
-## Exercises
+Question: can two nominally 6 kW machines share a recipe automatically? No. Compare the conditions above and establish applicability. This chapter deliberately provides no cross-machine cutting recipe.
 
-1. Why quote whole rows?
-2. Are 6/8 kW nozzle tips hard rules?
-3. Fill a first-part prep sheet (blanks OK).
-
-## Answers and criteria
-
-1. Conditions are locked together.
-2. No; starting reference with exceptions.
-3. Structure correct is enough.
-
-**Criteria**: no cross-machine universal pressure/speed/power numbers.
-
-## Common mistakes
-
-- Copying pressure from another power sheet.
-- Passing gauge setting as cut pressure.
-- Ignoring nozzle model/bore.
-
-## Sources
-
-- GWEIKE nozzle selection guide (starting reference + exceptions)
-- internal conditional table structure notes (not shipped)
-- CypCutPro pressure calibration (BLT only)
+References: [GWEIKE nozzle reference and exceptions](https://www.gwklaser.com/fiber-laser-cutting-nozzle-selection-guide.html); CypCutPro V1.0.0 Chapter 5 and §7.3; reviewed process-table field structure.
 
 ---
 
-[Previous / Plate Setup, Edge Finding, Frame, and Dry Run](07-plate-edge-dryrun.md) · [Next / First Cut and Inspection Record](09-first-cut-inspection.md)
-
-[简体中文](../zh-CN/08-process-tables-first-part.md) | [English](./08-process-tables-first-part.md)
+[← Locate the job on the sheet](07-plate-edge-dryrun.md) · [Contents](README.md) · [Cut and inspect the first part →](09-first-cut-inspection.md)

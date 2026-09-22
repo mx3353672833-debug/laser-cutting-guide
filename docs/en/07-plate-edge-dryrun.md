@@ -1,77 +1,37 @@
-# 07 · Plate Setup, Edge Finding, Frame, and Dry Run
+# 07 · Locate the job on the sheet
 
-[简体中文](../zh-CN/07-plate-edge-dryrun.md) | [English](./07-plate-edge-dryrun.md)
+[简体中文](../zh-CN/07-plate-edge-dryrun.md) · [English](./07-plate-edge-dryrun.md)
 
-[Previous / Homing, Coordinates, and Calibration](06-homing-calibration.md) · [Next / Read Process Tables and Prepare the First Part](08-process-tables-first-part.md)
+A nesting layout inside a screen border still needs locating on the real sheet. Establish sheet condition, coordinates and the starting position before edge finding and travel checks.
 
-## What you will learn
+## Edge finding establishes position and rotation
 
-Plate setup, edge finding, frame/border, dry run — and the difference between screen simulation and real motion. `Supervised on machine`
+If a sheet is rotated slightly, placing a zero at one corner does not describe its far end. Edge finding uses sheet-edge information to determine location and angle. It does not correct drawing dimensions or validate a cutting recipe.
 
-## Prerequisites and version scope
+![Classic CypCut edge-finding entry](../../assets/screenshots/bochu-cypcut/find-edge.png)
 
-Chapter 06. CypCut tutorials Find Edge / Precheck; CypCutPro §6.2, §7.4 (tilt preferably **≤ 10°**).
+*The official example highlights Find Edge on the CNC tab. Use the relevant E/Pro manual for those products.*
 
-## 1. Load the plate
+## Match sheet dimensions to machine axes
 
-- Flat stock on slats; avoid warped plates.
-- Close guarding per machine.
-- Ensure metal is under the head for follow.
+![Classic edge-finding settings](../../assets/screenshots/bochu-cypcut/find-edge-steps.png)
 
-## 2. Edge finding
+*Inspect sheet X/Y dimensions, strategy and start point. The pictured numbers belong to the original example.*
 
-Goal: plate angle and position so cutting can correct rotation.
+Sheet X is the length along the machine’s X axis; Y follows its Y axis. These do not necessarily match what looks like the long and short edges from where you stand. The cited E manual recommends setting dimensions slightly smaller than the actual sheet being found, while still matching the sheet and strategy; this is not permission to choose arbitrary smaller dimensions.
 
-1. **Home first**.  
-2. Tilt preferably **not over 10°**.  
-3. Wrong plate size risks **head crash** — measure and do not overshoot.  
-4. Common modes: 3-point quick, 6-point for thin plate near racks, disc center-find for circles, manual 2-point angle.
+Follow the machine’s homing requirements, confirm normal following and start over actual sheet material. The cited manual specifies sheet inclination no greater than 10°. Do not replace that with a vague approximation. Resolve uncertain size, strategy or start position before executing motion.
 
-## 3. Frame vs dry run
+## Inspect placement after finding edges
 
-| Action | Path | Motion | Laser | Check |
-|---|---|---|---|---|
-| Software simulate | display | none | off | order/shape |
-| Frame | rectangle / corrected box | **moves** | off (red pointer) | pointer on stock? |
-| Border | outer contour | **moves** | off | envelope / obstacles |
-| Dry Run | full toolpath | **moves** | off, gas off | interference |
+Check that the reported datum and angle make sense for the physical sheet. Preview the complete job inside usable material. If nesting already includes a margin, check how the edge-finding margin interacts with it. Clamps and damaged edges also reduce usable space.
 
-After edge finding, frame may follow the **corrected tilted box**.
+Perform frame and dry-run checks according to the machine procedure. Establish path clearance and head-height conditions before motion; a dry run is a verification step, not a collision probe. Moving the sheet, changing zero or editing the layout invalidates the checks affected by that change.
 
-## 4. Case order
+Exercise: sketch a rotated sheet with X/Y axes, a start point, a layout boundary and a clamp. Explain why a bounding frame inside the sheet is insufficient. An internal clamp or raised material can still obstruct the route, and a frame move does not traverse every internal path.
 
-Load → home → edge find → frame (pointer on stock) → dry run → prepare beam-on.
-
-## Exercises
-
-1. Why home before edge finding?
-2. Tilt limit?
-3. Does each of simulate / frame / dry run move the machine?
-4. Risk of wrong plate size?
-
-## Answers and criteria
-
-1. To correct machine coordinates.
-2. Preferably ≤ 10°; worse accuracy otherwise.
-3. Simulate no; frame and dry run **yes**.
-4. Crash into rack/plate risk.
-
-**Criteria**: three-action table correct; real motion needs supervision.
-
-## Common mistakes
-
-- Calling software simulate a dry run.
-- Starting with the pointer off the plate.
-- Guessing plate size.
-
-## Sources
-
-- CypCut Machining Precheck / Find Workpiece Edge
-- CypCutPro §6.2 / §7.4
-- running case ex01
+References: CypCutE V7.1 §5.2; CypCutPro V1.0.0 §7.4; [Bochu edge-finding guide](https://www.bochu.com/tutorials/find-sheet-edge-and-rotation-angle/).
 
 ---
 
-[Previous / Homing, Coordinates, and Calibration](06-homing-calibration.md) · [Next / Read Process Tables and Prepare the First Part](08-process-tables-first-part.md)
-
-[简体中文](../zh-CN/07-plate-edge-dryrun.md) | [English](./07-plate-edge-dryrun.md)
+[← Coordinates, homing and calibration](06-homing-calibration.md) · [Contents](README.md) · [Read a cutting recipe →](08-process-tables-first-part.md)

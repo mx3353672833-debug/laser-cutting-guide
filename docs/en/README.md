@@ -1,47 +1,39 @@
-# English learning guide
+# From a drawing to your first part
 
-[简体中文](../zh-CN/README.md) | [English](./README.md)
+[简体中文](../zh-CN/README.md) · [English](../en/README.md)
 
-A bilingual practical laser-cutting guide v0.1 for sales people: Bochu software prep and supervised machine track first, then Empower/Raytools migration.
+Follow one two-hole plate through drawing checks, toolpath preparation, machine setup and inspection. Start with the computer-based chapters.
 
-| Ch | Title | Tags |
-|---|---|---|
-| 00 | [Before You Start: Learning Path and Practice Setup](00-start-here.md) | offline+supervised |
-| 01 | [Bochu Systems, Software, and Files](01-bochu-systems.md) | mostly offline |
-| 02 | [Import Drawings and Check Dimensions](02-import-drawings.md) | mostly offline |
-| 03 | [Layers, Leads, Kerf, Micro Joints, and Cooling Points](03-leads-kerf-microjoints.md) | mostly offline |
-| 04 | [Nesting, Sorting, and Simulation](04-nesting-sorting-simulate.md) | mostly offline |
-| 05 | [From Screen to Machine: Parts and Pre-Start Checks](05-machine-and-prestart.md) | supervised |
-| 06 | [Homing, Coordinates, and Calibration](06-homing-calibration.md) | supervised |
-| 07 | [Plate Setup, Edge Finding, Frame, and Dry Run](07-plate-edge-dryrun.md) | supervised |
-| 08 | [Read Process Tables and Prepare the First Part](08-process-tables-first-part.md) | offline+supervised |
-| 09 | [First Cut and Inspection Record](09-first-cut-inspection.md) | supervised |
-| 10 | [Pause, Stop, Breakpoints, and Tasks](10-pause-resume-tasks.md) | supervised |
-| 11 | [Common Exceptions: Triage and Feedback](11-exceptions-feedback.md) | supervised |
-| 12 | [Daily Checks, Consumables, and Maintenance Boundaries](12-maintenance-boundaries.md) | supervised |
-| 13 | [Three Complete Practice Projects](13-three-projects.md) | projects |
-| 14 | [Trade Shows and Customer Site Demos](14-demo-events.md) | demo |
-| 15 | [Migrating from Bochu to Raytools / Empower](15-raytools-migration.md) | concept+pending |
+## Prepare the file
 
+1. [00 · Start with one drawing](00-start-here.md)
+2. [01 · Find your software and workspace](01-bochu-systems.md)
+3. [02 · Clean and check the drawing](02-import-drawings.md)
+4. [03 · Put the toolpath in the right place](03-leads-kerf-microjoints.md)
+5. [04 · Plan the cutting sequence](04-nesting-sorting-simulate.md)
 
-## Start here
+## Take the file to the machine
 
-Do this path first. Learn it on a screen, then try it on a machine.
+6. [05 · Understand the machine’s operating conditions](05-machine-and-prestart.md)
+7. [06 · Coordinates, homing and calibration](06-homing-calibration.md)
+8. [07 · Locate the job on the sheet](07-plate-edge-dryrun.md)
+9. [08 · Read a cutting recipe](08-process-tables-first-part.md)
+10. [09 · Cut and inspect the first part](09-first-cut-inspection.md)
 
-[00 What the job is](learn/00-why-this-works.md) → [01 UI](learn/01-ui-tour.md) → [02 Import](learn/02-first-import.md) → [03 Technique](learn/03-first-technique.md) → [04 Precheck](learn/04-first-precheck.md) → [05 Machine](learn/05-first-on-machine.md)
+## Recover, investigate and prepare
 
-Stuck? [Guide](learn/00-stuck.md).
+11. [10 · Resume a stopped job](10-pause-resume-tasks.md)
+12. [11 · Investigate a cutting problem](11-exceptions-feedback.md)
+13. [12 · Inspect consumables and record maintenance](12-maintenance-boundaries.md)
+14. [13 · Three practical projects](13-three-projects.md)
+15. [14 · Prepare a repeatable demonstration](14-demo-events.md)
+16. [15 · Transfer your skills to RayTools](15-raytools-migration.md)
 
-Chapters 00–15 below are the full reference.
-
-## Extra docs
+## Reference
 
 - [Glossary](glossary.md)
-- [Version scope](version-scope.md)
+- [Software and manual versions](version-scope.md)
 - [Sources](sources.md)
-- [Known gaps](known-gaps.md)
-- [Exercises](../../exercises/README.md)
+- [What remains unverified](known-gaps.md)
 
-## Tags
-
-`Offline practice` · `Supervised on machine` · `Pending machine verification`
+[DXF / Exercises and answers](../../exercises/README.md)

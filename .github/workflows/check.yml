@@ -1,16 +1,44 @@
-name: check-content
-
+name: Build and publish guide
 on:
   push:
+    branches: [main]
   pull_request:
-
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: guide-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run content checks
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check source and DXF files
         run: python scripts/check_content.py
+      - name: Build reader
+        run: python scripts/build_site.py
+      - name: Check rendered links and language navigation
+        run: python scripts/check_site.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish reader
+        id: deployment
+        uses: actions/deploy-pages@v4

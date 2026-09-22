@@ -1,98 +1,59 @@
-# 01 · Bochu Systems, Software, and Files
+# 01 · Find your software and workspace
 
-[简体中文](../zh-CN/01-bochu-systems.md) | [English](./01-bochu-systems.md)
+[简体中文](../zh-CN/01-bochu-systems.md) · [English](./01-bochu-systems.md)
 
-[Previous / Before You Start: Learning Path and Practice Setup](00-start-here.md) · [Next / Import Drawings and Check Dimensions](02-import-drawings.md)
+Start with the software title and its About page. Record the product name and full running version. Bochu is the manufacturer, FSCUT identifies a controller family, and CypCut, CypCutE, CypCutPro and HypCut are different software products. Machine power alone does not identify the software.
 
-![Controller and software map (diagram)](../../assets/figures/en/fig-01-system-map.svg)
+## Choose the matching reference
 
-*Figure 01-1 diagram: controller on the machine, cutting software on the industrial PC. Not a screenshot.*
-
-## What you will learn
-
-Separate controller models, machining software, nesting software, document versions, and runtime versions; know what you can practice offline.
-
-## Prerequisites and version scope
-
-Concepts are general. Manual baselines: CypCutE V7.1 (based on **6.4.2310**); CypCutPro V1.0.0 (based on **7.1.2432.5**). Runtime not measured in this project.
-
-## 1. Hardware system first, then software
-
-| Controller | Product-line positioning (not a sole selection rule) | Software |
+| Product | Reference used here | How to use it |
 |---|---|---|
-| FSCUT2000C | Low/mid power board | CypCut |
-| FSCUT2000E | Bus, 1–4 kW class | CypCutE |
-| FSCUT4000E | Bus, 1.5–8 kW class | CypCutE |
-| FSCUT6000 | Bus, higher power class | CypCutPro |
-| FSCUT8000 series | Bus, higher still | HypCut |
+| Classic CypCut | Bochu’s English introductory tutorials | Recognise functions in the screenshots |
+| CypCutE | Document V7.1, based on software 6.4.2310 | Check E-specific menus and instructions |
+| New-interface CypCutPro | Document V1.0.0, software 7.1.2432.5 | Check Pro control and calibration instructions |
 
-**CypNest** is separate nesting software and does not fire the laser.
+Document V7.1 does not mean the installed software is version 7.1. Record the running version separately from the manual’s version and software baseline. See [version scope](version-scope.md) for other branches.
 
-## 2. Keep three version fields apart
+## Practise on a design computer
 
-1. **Document version** (cover), e.g. “Version 7.1”.
-2. **Software version the manual is based on**, e.g. 6.4.2310.
-3. **Runtime version** on the machine PC About page — not measured here.
+Use the [official download centre](https://www.bochu.com/ch/soft/) and the version confirmed for the intended machine. Do not replace production software just to match a tutorial. Offline drawing practice does not require changing machine-axis, laser or gas configuration.
 
-Never write “manual 7.1” into a click-path as if it were the running software.
+The E and Pro manuals used here describe demonstration mode on a computer without a control card. It supports preparation, not actual machining control. Classic CypCut documentation has different dongle-related wording; do not generalise it across products. Confirm the current mode before practising. If startup is blocked, record the exact message and version and resolve the branch-specific requirement.
 
-## 3. What works offline
+## Recognise three working areas
 
-| Software (from manuals) | Without hardware | Notes |
+![Classic CypCut machining console](../../assets/screenshots/bochu-cypcut/control-panel.png)
+
+*Bochu’s classic CypCut illustration. The red outline locates the machining console at the lower right. The large black area is the drawing board. This is not a screenshot of our own E/Pro session.*
+
+Selecting a drawing object, editing its process and moving the cutting head are different operations. The first two normally use the drawing board and process tools; many controls in the machining console command real hardware.
+
+![Graphic process tools](../../assets/screenshots/bochu-cypcut/technique-panel.png)
+
+*The highlighted toolbar contains Lead, Compensate, Micro Joint and Cooling Point. We will use these functions in Chapter 3.*
+
+| Area | Locate first | Purpose |
 |---|---|---|
-| CypCut (Dog-based manual) | No Dog → DEMO | Everything except motion control |
-| CypCutE based on 6.4.2310 | No control card → demo mode | Design on a standalone laptop |
-| CypCutPro based on 7.1.x | No control card → demo mode | Same idea |
-| HypCut | Needs matching hardware; no demo wording found | To verify |
+| File menu | Open, Import, Save As | Load, append and save a working copy |
+| Drawing/process tools | Select, measure, leads, compensation | Prepare geometry and paths |
+| Machining console | Simulate, Start, Pause, Stop | Distinguish screen playback from machine execution |
 
-`Offline practice`: import, units, optimize, leads/kerf/micro joints, layer mapping, nesting, sorting, **software simulation**, save tasks.  
-`Supervised on machine`: homing, edge finding, real frame/dry-run safety, first beam-on part.
+Start is not a preview command. Use the documented simulation function for screen playback. Recognise gas, laser, following, jog and homing controls without clicking through them to learn what they do.
 
-## 4. Common file types
+## Open versus Import
 
-| Type | Use |
-|---|---|
-| DXF and similar | Geometry |
-| *.lxd / *.lxds | Toolpaths |
-| *.nrp / *.nrp2 | Nest packages |
-| *.fsm | Material/layer process files (may be OEM-limited) |
-| Task files (e.g. *.cps) | Zero, edge angle, breakpoint, drawing for job insert |
+Open switches to a file. Import adds geometry to the current drawing board. Importing the same file twice can leave coincident copies that still look like a single part.
 
-## 5. UI regions (CypCutE manual context)
+Begin ex01 in an empty document. Use Import later when you intentionally add more parts. Save a working copy, close it and reopen it to confirm that the edits were retained.
 
-Drawing board + machine envelope frame; menus File / Common / Draw / Nest / CNC / View; layer color buttons on the right with “do not machine”; last two layers may map to first/last machining order — always follow **your** software manual.
+A DXF exchanges geometry. Leads, sequence and machining settings need the software’s machining-file format. Exporting another DXF is not proof that the complete process has been saved. The [official format guide](https://www.bochu.com/tutorials/basics-import-drawing/) distinguishes geometry, toolpath and nesting-package files.
 
-## 6. Example
+## Before continuing
 
-Demo badge controller FSCUT4000E → CypCutE → record About runtime → prepare geometry in demo mode → header of notes: document version / based-on software / runtime.
+Record the product and running version, then locate Open, Import, a measurement tool and simulation. If the screen differs, use the matching manual. Next, we will inspect the actual plate geometry.
 
-## Exercises
-
-1. Which machining software matches FSCUT6000? Which tool nests?
-2. Write the three version lines.
-3. List three offline and three supervised items.
-
-## Answers and criteria
-
-1. CypCutPro; CypNest.
-2. Example: doc V7.1 / based on CypCutE 6.4.2310 / runtime not measured.
-3. Offline: import, leads, simulate. Supervised: homing, edge finding, beam-on.
-
-**Criteria**: pairs correct; version split correct; demo mode cannot cut.
-
-## Common mistakes
-
-- Applying the “no Dog” rule to E/Pro (their manuals say no **control card**).
-- Treating CypNest as motion/laser control.
-
-## Sources
-
-- CypCutE User Manual V7.1 (based on 6.4.2310)
-- CypCutPro User Manual V1.0.0 preface
-- Public product/manual notes (see `version-scope.md`)
+References: CypCutE V7.1 welcome page and §§1.3–1.4; CypCutPro V1.0.0 preface; [Bochu machining controls](https://www.bochu.com/tutorials/basics-machining-control/).
 
 ---
 
-[Previous / Before You Start: Learning Path and Practice Setup](00-start-here.md) · [Next / Import Drawings and Check Dimensions](02-import-drawings.md)
-
-[简体中文](../zh-CN/01-bochu-systems.md) | [English](./01-bochu-systems.md)
+[← Start with one drawing](00-start-here.md) · [Contents](README.md) · [Clean and check the drawing →](02-import-drawings.md)

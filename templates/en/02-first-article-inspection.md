@@ -23,4 +23,4 @@
 
 Photo id: ____  Release: ☐Y ☐N  Inspector: ____
 
-**Fictional sample**: Q235 3.00 mm; row-12 from “sample table” (fictional); through=yes; light hole burr; conditional release.
+**Fictional entry, not a cutting result:** drawing length 80.00 ± 0.10 mm; measured length 79.70 mm; FAIL, hold the part. Record the measurement location and photographs. Check measurement method, source geometry and compensation direction before another trial. A through-cut with a reasonable appearance does not establish dimensional acceptance.

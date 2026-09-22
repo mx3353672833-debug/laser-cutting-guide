@@ -1,74 +1,31 @@
-# 10 · Pause, Stop, Breakpoints, and Tasks
+# 10 · Resume a stopped job
 
-[简体中文](../zh-CN/10-pause-resume-tasks.md) | [English](./10-pause-resume-tasks.md)
+[简体中文](../zh-CN/10-pause-resume-tasks.md) · [English](./10-pause-resume-tasks.md)
 
-[Previous / First Cut and Inspection Record](09-first-cut-inspection.md) · [Next / Common Exceptions: Triage and Feedback](11-exceptions-feedback.md)
+Resuming a job is more than pressing Start again. First establish whether the interruption changed sheet position, machine coordinates or the active task. A saved breakpoint preserves progress; it does not guarantee physical alignment.
 
-## What you will learn
-
-Pause / stop / breakpoint / task recovery conditions; normal interruption vs post-exception checks.
-
-## Prerequisites and version scope
-
-Chapter 09. CypCutPro §6.2–6.3 and task management; CypCut tutorial Resume Unfinished Cutting (*.cps).
-
-## 1. Control actions
-
-| Action | Meaning | Note |
+| Interruption | Establish first | Reason |
 |---|---|---|
-| Pause | stop beam/feed (manual head/gas may be allowed) | step forward/back |
-| Stop | end this run | may not return to safe point |
-| Breakpoint resume | continue at stop point | has preconditions |
-| Start from here | cut from a picked point | earlier path skipped |
-| Save/load task | restore after job insert | zero, edge angle, breakpoint, drawing |
+| Normal pause, unchanged file/sheet | State permits continuation and recovery path is valid | Current-task recovery may be possible |
+| Inserted urgent job | What the saved task contains and whether the original sheet remains located | A drawing file alone may not preserve job state |
+| Power loss, servo fault, collision or sheet movement | Machine reference, work location and equipment condition | The breakpoint may no longer match the material |
 
-## 2. Breakpoint preconditions (CypCutPro context)
+Use your version’s definitions of Pause, Stop, Continue and breakpoint positioning. Post-stop head movement can depend on configuration; another machine’s behaviour is not a universal rule.
 
-- Drawing not modified.  
-- Process parameters unchanged.  
-- No new machining run started.
+## Understand saved tasks
 
-If any fail, re-check instead of forcing resume.
+The CypCutE task function documents saving program zero, edge angle, breakpoint information and drawing for later recovery. After loading, verify material, datum and drawing state. Exporting a DXF is not equivalent to saving a task.
 
-## 3. Normal interruption vs exception
+Practise file management offline: keep one part identifier across the geometry file, machining file and inspection record, with distinguishable revisions. Read what your task function stores and what it does not guarantee. Do not claim a successful restart without an actual controlled trial.
 
-| Normal | Exception |
-|---|---|
-| stock change, measure, job insert | alarm, crash, incomplete cut, power loss |
-| pause / task by the book | assess coordinates, nozzle, part first |
+## A recovery decision
 
-**Never** blindly reset and resume.
+Both holes are complete, the outer profile is unfinished, and someone moves the sheet. The screen may still show the correct saved breakpoint, but direct continuation is inappropriate. Re-establish the relationship between program and material using the machine’s recovery procedure, then assess the remaining route.
 
-## 4. Case
+If machine reference or post-collision condition cannot be established, remain at the inspection stage. The objective is alignment of remaining paths with the actual workpiece, not merely clearing an alarm.
 
-Pause mid-part → record remaining contours → save task → insert job → load task → locate breakpoint → resume (optional re-pierce; watch the joint).
-
-## Exercises
-
-1. Three breakpoint preconditions?
-2. What does a task file usually store?
-3. Why not resume after an alarm?
-
-## Answers and criteria
-
-1. No draw edit, no param change, no new run.  
-2. Zero, edge angle, breakpoint, drawing, etc.  
-3. Coordinates/part/consumables may have changed.
-
-**Criteria**: all preconditions; no “always resumable”.
-
-## Common mistakes
-
-- Resuming after changing parameters.
-- Treating screen simulate as breakpoint evidence.
-
-## Sources
-
-- CypCutPro machining control / task management
-- CypCut Resume Unfinished Cutting
+References: CypCutE V7.1 §§4.8–4.9 and 5.5; CypCutPro V1.0.0 control/task sections; [Bochu saved-task recovery](https://www.bochu.com/tutorials/resume-unfinished-cutting-in-next-day/).
 
 ---
 
-[Previous / First Cut and Inspection Record](09-first-cut-inspection.md) · [Next / Common Exceptions: Triage and Feedback](11-exceptions-feedback.md)
-
-[简体中文](../zh-CN/10-pause-resume-tasks.md) | [English](./10-pause-resume-tasks.md)
+[← Cut and inspect the first part](09-first-cut-inspection.md) · [Contents](README.md) · [Investigate a cutting problem →](11-exceptions-feedback.md)
