@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">Fig 6 Kerf compensation (diagram)</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">Diagram · not a screenshot</text>
+  <!-- design contour -->
+  <rect x="120" y="80" width="200" height="140" fill="none" stroke="#555" stroke-dasharray="4 3" stroke-width="1.5"/>
+  <text x="220" y="55" text-anchor="middle" font-size="11" fill="#555">Design outline (nominal)</text>
+  <!-- offset toolpath (outside) -->
+  <rect x="110" y="70" width="220" height="160" fill="none" stroke="#1a73e8" stroke-width="2"/>
+  <text x="360" y="95" font-size="11" fill="#1a73e8">Offset toolpath (grow)</text>
+  <!-- kerf bridge: from design top edge midpoint to offset top edge midpoint -->
+  <line x1="220" y1="80" x2="220" y2="70" stroke="#d93025" stroke-width="2"/>
+  <line x1="210" y1="80" x2="230" y2="80" stroke="#d93025" stroke-width="1"/>
+  <line x1="205" y1="70" x2="235" y2="70" stroke="#d93025" stroke-width="1"/>
+  <text x="350" y="180" font-size="11" fill="#d93025">= half kerf (centerline offset)</text>
+  <path d="M235 75 H340 V175" fill="none" stroke="#d93025" stroke-width="1"/>
+  <!-- left edge kerf -->
+  <line x1="120" y1="150" x2="110" y2="150" stroke="#d93025" stroke-width="2"/>
+  <text x="40" y="155" font-size="11" fill="#d93025">Same idea</text>
+  <text x="40" y="280" font-size="12" fill="#444">Laser removes a kerf. Offset ≈ ½ kerf so finished edge lands on design.</text>
+  <text x="40" y="310" font-size="12" fill="#444">Outer grows, inner shrinks (CypCutE §3.2). Wrong class worsens size error.</text>
+  <text x="40" y="350" font-size="11" fill="#888">Set kerf from measured cuts (manual); offset exaggerated here.</text>
+  <text x="40" y="375" font-size="11" fill="#888">Redrawn concept from CypCutE 7.1 printed 26–27 (§3.2)</text>
+</svg>

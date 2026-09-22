@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图12 图层映射（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <text x="40" y="55" font-size="12">CypCut 经典教程映射示例；E/Pro 编号需另核</text>
+  <rect x="40" y="80" width="200" height="36" rx="6" fill="#eee" stroke="#999"/>
+  <text x="140" y="103" text-anchor="middle" font-size="12">DXF: CUT（轮廓）</text>
+  <rect x="320" y="80" width="200" height="36" rx="6" fill="#e8f0fe" stroke="#4285f4"/>
+  <text x="420" y="103" text-anchor="middle" font-size="12">CypCut 层 1–14 切割工艺</text>
+  <rect x="40" y="140" width="200" height="36" rx="6" fill="#eee" stroke="#999"/>
+  <text x="140" y="163" text-anchor="middle" font-size="12">DXF: MARK（源层名）</text>
+  <rect x="320" y="140" width="200" height="36" rx="6" fill="#e6f4ea" stroke="#34a853"/>
+  <text x="420" y="163" text-anchor="middle" font-size="12">目标层 15：最先加工</text>
+  <rect x="40" y="200" width="200" height="36" rx="6" fill="#eee" stroke="#999"/>
+  <text x="140" y="223" text-anchor="middle" font-size="12">DXF: TEXT（源层名）</text>
+  <rect x="320" y="200" width="200" height="36" rx="6" fill="#f5f5f5" stroke="#999"/>
+  <text x="420" y="223" text-anchor="middle" font-size="12">层 0：不加工</text>
+  <path d="M240 98 H320 M240 158 H320 M240 218 H320" stroke="#666" stroke-width="1"/>
+  <text x="40" y="300" font-size="12">层 15 最先、层 16 最后（官方 Map DXF Layer 文）。</text>
+  <text x="40" y="330" font-size="12">编号仅对应本图 CypCut 教程。打标等工艺需单独设置。</text>
+
+</svg>

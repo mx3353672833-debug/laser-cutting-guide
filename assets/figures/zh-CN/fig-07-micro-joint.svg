@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图7 微连（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <rect x="80" y="70" width="520" height="200" fill="none" stroke="#999" stroke-width="3"/>
+  <rect x="160" y="110" width="140" height="120" fill="none" stroke="#1a73e8" stroke-width="2"/>
+  <rect x="360" y="110" width="140" height="120" fill="none" stroke="#1a73e8" stroke-width="2"/>
+  <circle cx="160" cy="170" r="5" fill="#f9ab00"/>
+  <circle cx="300" cy="130" r="5" fill="#f9ab00"/>
+  <circle cx="430" cy="230" r="5" fill="#f9ab00"/>
+  <text x="40" y="310" font-size="12">黄点=微连：零件仍连在骨架上，防翘起撞切割头。</text>
+  <text x="40" y="340" font-size="12">微连太多难取件；太少可能翘料。位置避开装配面，数量按零件大小经验设定（待现场确认）。</text>
+
+</svg>

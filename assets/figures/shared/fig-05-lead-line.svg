@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图5 引线原理（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <circle cx="340" cy="180" r="70" fill="none" stroke="#1a73e8" stroke-width="2"/>
+  <path d="M220 120 L275 145" stroke="#0d904f" stroke-width="2"/>
+  <circle cx="220" cy="120" r="4" fill="#0d904f"/>
+  <text x="180" y="115" font-size="11" fill="#0d904f">引线起点（板上）</text>
+  <text x="255" y="135" font-size="11" fill="#0d904f">引线</text>
+  <circle cx="275" cy="145" r="4" fill="#f9ab00"/>
+  <text x="230" y="175" font-size="11" fill="#c5221f">入切点</text>
+  <text x="40" y="320" font-size="12" fill="#444">目的：穿孔点离开零件边缘，避免边缘烧痕与起步速度不均伤到轮廓。</text>
+  <text x="40" y="350" font-size="12" fill="#444">外轮廓引线多从外侧引入；内孔引线从孔内废料区引入。长度与形状按工艺设定，无数值标准。</text>
+
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图3 开口轮廓与闭合轮廓（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <text x="40" y="55" font-size="12">闭合轮廓（可作为零件外轮廓）</text>
+  <rect x="60" y="75" width="120" height="80" fill="none" stroke="#0d904f" stroke-width="2.5"/>
+  <text x="120" y="120" text-anchor="middle" font-size="11" fill="#0d904f">闭合</text>
+  <text x="280" y="55" font-size="12">开口轮廓（缺口约 2mm）</text>
+  <path d="M300 75 H420 V155 H320" fill="none" stroke="#d93025" stroke-width="2.5"/>
+  <circle cx="300" cy="75" r="5" fill="#d93025"/>
+  <circle cx="320" cy="155" r="5" fill="#d93025"/>
+  <text x="360" y="200" text-anchor="middle" font-size="11" fill="#d93025">两端点未重合</text>
+  <text x="40" y="260" font-size="12" fill="#444">开口会导致：无法识别零件、补偿方向异常、排序混乱。修复：合并相连线或手工连接端点。</text>
+  <text x="40" y="300" font-size="12" fill="#444">检查方法：放大端点；或使用软件“显示不封闭图形/合并相连线”类命令。</text>
+
+</svg>

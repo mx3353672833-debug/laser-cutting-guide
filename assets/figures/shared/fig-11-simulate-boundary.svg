@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图11 模拟 / 空运行 / 出光边界（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <rect x="40" y="60" width="180" height="140" rx="8" fill="#e8f0fe" stroke="#4285f4"/>
+  <text x="130" y="100" text-anchor="middle" font-size="13" fill="#174ea6">软件模拟</text>
+  <text x="130" y="130" text-anchor="middle" font-size="11">只在屏幕上显示</text>
+  <text x="130" y="150" text-anchor="middle" font-size="11">加工顺序与刀路</text>
+  <text x="130" y="175" text-anchor="middle" font-size="11">不下发运动指令</text>
+  <rect x="250" y="60" width="180" height="140" rx="8" fill="#fef7e0" stroke="#f9ab00"/>
+  <text x="340" y="100" text-anchor="middle" font-size="13" fill="#b06000">真实运动空运行</text>
+  <text x="340" y="130" text-anchor="middle" font-size="11">机床真实移动</text>
+  <text x="340" y="150" text-anchor="middle" font-size="11">气/光/PLC 关闭</text>
+  <text x="340" y="175" text-anchor="middle" font-size="11">（Dry Run / 走边框）</text>
+  <rect x="460" y="60" width="180" height="140" rx="8" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="550" y="100" text-anchor="middle" font-size="13" fill="#c5221f">出光加工</text>
+  <text x="550" y="130" text-anchor="middle" font-size="11">激光+气+运动</text>
+  <text x="550" y="150" text-anchor="middle" font-size="11">产生切缝与热影响</text>
+  <text x="550" y="175" text-anchor="middle" font-size="11">须完成检查并带教</text>
+  <text x="40" y="250" font-size="12">三者风险等级完全不同。新手最易混淆的是“模拟完成 = 可以切”。</text>
+  <text x="40" y="285" font-size="12">Frame=方框；Border=沿外轮廓；Dry Run=沿刀路空走。实机操作须按该机 SOP 与带教。</text>
+  <text x="40" y="330" font-size="11" fill="#888">依据 CypCut 教程 Precheck/Toolpath 章节概念绘制（示意）</text>
+
+</svg>

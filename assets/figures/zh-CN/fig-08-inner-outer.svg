@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图8 内外轮廓与废料侧（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <rect x="140" y="60" width="300" height="220" fill="none" stroke="#1a73e8" stroke-width="3"/>
+  <text x="290" y="50" text-anchor="middle" font-size="12" fill="#1a73e8">外轮廓（最外）</text>
+  <circle cx="230" cy="150" r="40" fill="none" stroke="#0d904f" stroke-width="2.5"/>
+  <rect x="310" y="120" width="70" height="60" fill="none" stroke="#0d904f" stroke-width="2.5"/>
+  <text x="230" y="155" text-anchor="middle" font-size="11" fill="#0d904f">内轮廓</text>
+  <text x="345" y="155" text-anchor="middle" font-size="11" fill="#0d904f">内轮廓</text>
+  <text x="40" y="330" font-size="12">规则：最外圈=外轮廓；其内第一层=内轮廓。通常先切内轮廓，再切外轮廓。</text>
+  <text x="40" y="360" font-size="12">补偿方向、引线引入侧都依赖该识别。嵌套错误会导致零件与废料判反。</text>
+
+</svg>

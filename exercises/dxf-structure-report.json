@@ -1,0 +1,931 @@
+[
+  {
+    "file": "ex01-双孔连接片.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 4,
+    "counts": {
+      "LINE": 0,
+      "CIRCLE": 2,
+      "LWPOLYLINE": 1,
+      "TEXT": 1
+    },
+    "holes": 2,
+    "layers": [
+      "CUT",
+      "MARK"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      80.0,
+      40.0
+    ],
+    "size": [
+      80.0,
+      40.0
+    ],
+    "closed_polylines": [
+      true
+    ],
+    "unpaired_endpoints": [],
+    "purpose": "标准练习件 80×40 双孔 φ8（半径4）",
+    "intended_defect": "无故意缺陷",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 2,
+      "hole_d": 8
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            80.0,
+            0.0
+          ],
+          [
+            80.0,
+            40.0
+          ],
+          [
+            0.0,
+            40.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          20.0,
+          20.0
+        ],
+        "r": 4.0
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          60.0,
+          20.0
+        ],
+        "r": 4.0
+      },
+      {
+        "type": "TEXT",
+        "layer": "MARK",
+        "text": "80x40 2-hole plate mm"
+      }
+    ]
+  },
+  {
+    "file": "ex02-单位错误.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 1,
+    "entity_count": 4,
+    "counts": {
+      "LINE": 0,
+      "CIRCLE": 2,
+      "LWPOLYLINE": 1,
+      "TEXT": 1
+    },
+    "holes": 2,
+    "layers": [
+      "CUT",
+      "NOTE"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      80.0,
+      40.0
+    ],
+    "size": [
+      80.0,
+      40.0
+    ],
+    "closed_polylines": [
+      true
+    ],
+    "unpaired_endpoints": [],
+    "purpose": "单位错误：坐标数值按 mm 画，$INSUNITS=1(inch)",
+    "intended_defect": "故意 INSUNITS=1",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 2,
+      "hole_d": 8
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            80.0,
+            0.0
+          ],
+          [
+            80.0,
+            40.0
+          ],
+          [
+            0.0,
+            40.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          20.0,
+          20.0
+        ],
+        "r": 4.0
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          60.0,
+          20.0
+        ],
+        "r": 4.0
+      },
+      {
+        "type": "TEXT",
+        "layer": "NOTE",
+        "text": "INSUNITS=inch but coords drawn as mm"
+      }
+    ]
+  },
+  {
+    "file": "ex03-重复线.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 4,
+    "counts": {
+      "LINE": 2,
+      "CIRCLE": 1,
+      "LWPOLYLINE": 1,
+      "TEXT": 0
+    },
+    "holes": 1,
+    "layers": [
+      "CUT"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      60.0,
+      30.0
+    ],
+    "size": [
+      60.0,
+      30.0
+    ],
+    "closed_polylines": [
+      true
+    ],
+    "unpaired_endpoints": [],
+    "purpose": "重复线：外框底边叠 2 条 LINE",
+    "intended_defect": "故意：底边 (0,0)-(60,0) 额外 2 条",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 1,
+      "hole_d": 10
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            60.0,
+            0.0
+          ],
+          [
+            60.0,
+            30.0
+          ],
+          [
+            0.0,
+            30.0
+          ]
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "CUT",
+        "start": [
+          0.0,
+          0.0
+        ],
+        "end": [
+          60.0,
+          0.0
+        ],
+        "len": 60.0
+      },
+      {
+        "type": "LINE",
+        "layer": "CUT",
+        "start": [
+          0.0,
+          0.0
+        ],
+        "end": [
+          60.0,
+          0.0
+        ],
+        "len": 60.0
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          30.0,
+          15.0
+        ],
+        "r": 5.0
+      }
+    ]
+  },
+  {
+    "file": "ex04-开口轮廓.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 5,
+    "counts": {
+      "LINE": 4,
+      "CIRCLE": 1,
+      "LWPOLYLINE": 0,
+      "TEXT": 0
+    },
+    "holes": 1,
+    "layers": [
+      "CUT"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      80.0,
+      40.0
+    ],
+    "size": [
+      80.0,
+      40.0
+    ],
+    "closed_polylines": [],
+    "unpaired_endpoints": [
+      [
+        0.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "purpose": "开口轮廓：左下缺口 2 单位",
+    "intended_defect": "故意：未配对端点 (0,0) 与 (0,2) 在左下",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 1,
+      "hole_d": 12,
+      "gap_at": "bottom-left",
+      "gap_endpoints": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "gap_length": 2
+    },
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "CUT",
+        "start": [
+          0.0,
+          2.0
+        ],
+        "end": [
+          0.0,
+          40.0
+        ],
+        "len": 38.0
+      },
+      {
+        "type": "LINE",
+        "layer": "CUT",
+        "start": [
+          0.0,
+          40.0
+        ],
+        "end": [
+          80.0,
+          40.0
+        ],
+        "len": 80.0
+      },
+      {
+        "type": "LINE",
+        "layer": "CUT",
+        "start": [
+          80.0,
+          40.0
+        ],
+        "end": [
+          80.0,
+          0.0
+        ],
+        "len": 40.0
+      },
+      {
+        "type": "LINE",
+        "layer": "CUT",
+        "start": [
+          80.0,
+          0.0
+        ],
+        "end": [
+          0.0,
+          0.0
+        ],
+        "len": 80.0
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          40.0,
+          20.0
+        ],
+        "r": 6.0
+      }
+    ]
+  },
+  {
+    "file": "ex05-微小图元.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 4,
+    "counts": {
+      "LINE": 2,
+      "CIRCLE": 1,
+      "LWPOLYLINE": 1,
+      "TEXT": 0
+    },
+    "holes": 1,
+    "layers": [
+      "CUT",
+      "TINY"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      50.0,
+      50.0
+    ],
+    "size": [
+      50.0,
+      50.0
+    ],
+    "closed_polylines": [
+      true
+    ],
+    "unpaired_endpoints": [
+      [
+        10.0,
+        10.0
+      ],
+      [
+        10.05,
+        10.0
+      ],
+      [
+        20.0,
+        20.0
+      ],
+      [
+        20.02,
+        20.02
+      ]
+    ],
+    "purpose": "微小图元",
+    "intended_defect": "故意：长度 0.05 与 0.028 线段、r=0.03 圆",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 1,
+      "hole_d": 0.06
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            50.0,
+            0.0
+          ],
+          [
+            50.0,
+            50.0
+          ],
+          [
+            0.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "TINY",
+        "start": [
+          10.0,
+          10.0
+        ],
+        "end": [
+          10.05,
+          10.0
+        ],
+        "len": 0.05
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "TINY",
+        "center": [
+          25.0,
+          25.0
+        ],
+        "r": 0.03
+      },
+      {
+        "type": "LINE",
+        "layer": "TINY",
+        "start": [
+          20.0,
+          20.0
+        ],
+        "end": [
+          20.02,
+          20.02
+        ],
+        "len": 0.0283
+      }
+    ]
+  },
+  {
+    "file": "ex06-内外轮廓嵌套.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 4,
+    "counts": {
+      "LINE": 0,
+      "CIRCLE": 2,
+      "LWPOLYLINE": 2,
+      "TEXT": 0
+    },
+    "holes": 2,
+    "layers": [
+      "CUT"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      100.0,
+      60.0
+    ],
+    "size": [
+      100.0,
+      60.0
+    ],
+    "closed_polylines": [
+      true,
+      true
+    ],
+    "unpaired_endpoints": [],
+    "purpose": "嵌套：外框 + 内方 + 同心圆",
+    "intended_defect": "故意：圆中圆岛",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 2,
+      "outer": "rect 100x60"
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            100.0,
+            0.0
+          ],
+          [
+            100.0,
+            60.0
+          ],
+          [
+            0.0,
+            60.0
+          ]
+        ]
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            15.0,
+            15.0
+          ],
+          [
+            45.0,
+            15.0
+          ],
+          [
+            45.0,
+            45.0
+          ],
+          [
+            15.0,
+            45.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          75.0,
+          30.0
+        ],
+        "r": 12.0
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          75.0,
+          30.0
+        ],
+        "r": 5.0
+      }
+    ]
+  },
+  {
+    "file": "ex07-工艺分层.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 6,
+    "counts": {
+      "LINE": 2,
+      "CIRCLE": 1,
+      "LWPOLYLINE": 1,
+      "TEXT": 2
+    },
+    "holes": 1,
+    "layers": [
+      "CUT",
+      "MARK",
+      "TEXT0"
+    ],
+    "bbox": [
+      0.0,
+      0.0,
+      70.0,
+      35.0
+    ],
+    "size": [
+      70.0,
+      35.0
+    ],
+    "closed_polylines": [
+      true
+    ],
+    "unpaired_endpoints": [
+      [
+        35.0,
+        10.0
+      ],
+      [
+        55.0,
+        10.0
+      ],
+      [
+        35.0,
+        18.0
+      ],
+      [
+        55.0,
+        18.0
+      ]
+    ],
+    "purpose": "分层 CUT / MARK / TEXT0",
+    "intended_defect": "故意分层",
+    "expect": {
+      "plates": 1,
+      "holes_per_plate": 1,
+      "hole_d": 10
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            70.0,
+            0.0
+          ],
+          [
+            70.0,
+            35.0
+          ],
+          [
+            0.0,
+            35.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          18.0,
+          17.5
+        ],
+        "r": 5.0
+      },
+      {
+        "type": "LINE",
+        "layer": "MARK",
+        "start": [
+          35.0,
+          10.0
+        ],
+        "end": [
+          55.0,
+          10.0
+        ],
+        "len": 20.0
+      },
+      {
+        "type": "LINE",
+        "layer": "MARK",
+        "start": [
+          35.0,
+          18.0
+        ],
+        "end": [
+          55.0,
+          18.0
+        ],
+        "len": 20.0
+      },
+      {
+        "type": "TEXT",
+        "layer": "MARK",
+        "text": "P-01"
+      },
+      {
+        "type": "TEXT",
+        "layer": "TEXT0",
+        "text": "center text do not cut"
+      }
+    ]
+  },
+  {
+    "file": "ex08-多件布局.dxf",
+    "parse_ok": true,
+    "audit_errors": [],
+    "audit_fixes": [],
+    "insunits": 4,
+    "entity_count": 8,
+    "counts": {
+      "LINE": 0,
+      "CIRCLE": 3,
+      "LWPOLYLINE": 4,
+      "TEXT": 1
+    },
+    "holes": 3,
+    "layers": [
+      "CUT",
+      "NOTE",
+      "SHEET"
+    ],
+    "bbox": [
+      5.0,
+      5.0,
+      195.0,
+      80.0
+    ],
+    "size": [
+      190.0,
+      75.0
+    ],
+    "closed_polylines": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "unpaired_endpoints": [],
+    "purpose": "3 件单孔矩形 + 闭合板材参考矩形 SHEET",
+    "intended_defect": "每件 1 孔；SHEET 为闭合框可检边距",
+    "expect": {
+      "plates": 3,
+      "holes_per_plate": 1,
+      "hole_d": 12,
+      "sheet": "closed rect 190x75"
+    },
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            10.0,
+            15.0
+          ],
+          [
+            60.0,
+            15.0
+          ],
+          [
+            60.0,
+            55.0
+          ],
+          [
+            10.0,
+            55.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          35.0,
+          35.0
+        ],
+        "r": 6.0
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            75.0,
+            15.0
+          ],
+          [
+            125.0,
+            15.0
+          ],
+          [
+            125.0,
+            55.0
+          ],
+          [
+            75.0,
+            55.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          100.0,
+          35.0
+        ],
+        "r": 6.0
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "CUT",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            140.0,
+            15.0
+          ],
+          [
+            190.0,
+            15.0
+          ],
+          [
+            190.0,
+            55.0
+          ],
+          [
+            140.0,
+            55.0
+          ]
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "CUT",
+        "center": [
+          165.0,
+          35.0
+        ],
+        "r": 6.0
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "SHEET",
+        "closed": true,
+        "npts": 4,
+        "pts": [
+          [
+            5.0,
+            5.0
+          ],
+          [
+            195.0,
+            5.0
+          ],
+          [
+            195.0,
+            80.0
+          ],
+          [
+            5.0,
+            80.0
+          ]
+        ]
+      },
+      {
+        "type": "TEXT",
+        "layer": "NOTE",
+        "text": "sheet 190x75 mm ref closed"
+      }
+    ]
+  }
+]

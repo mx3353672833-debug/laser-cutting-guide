@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">Fig 3 Open vs closed contours (diagram)</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">Diagram · not a screenshot</text>
+  
+  <text x="40" y="55" font-size="12">Closed contour (can be outer)</text>
+  <rect x="60" y="75" width="120" height="80" fill="none" stroke="#0d904f" stroke-width="2.5"/>
+  <text x="120" y="120" text-anchor="middle" font-size="11" fill="#0d904f">Closed</text>
+  <text x="280" y="55" font-size="12">Open contour (gap ≈ 2 mm)</text>
+  <path d="M300 75 H420 V155 H320" fill="none" stroke="#d93025" stroke-width="2.5"/>
+  <circle cx="300" cy="75" r="5" fill="#d93025"/>
+  <circle cx="320" cy="155" r="5" fill="#d93025"/>
+  <text x="360" y="200" text-anchor="middle" font-size="11" fill="#d93025">Endpoints not joined</text>
+  <text x="40" y="260" font-size="12" fill="#444">Open gaps break profile detection, offset, and order. Fix by merge or join ends.</text>
+  <text x="40" y="300" font-size="12" fill="#444">How to check: zoom ends or use open-contour/merge commands.</text>
+
+</svg>

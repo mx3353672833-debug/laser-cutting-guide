@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">Fig 1 Controller vs software (diagram)</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">Diagram · not a screenshot</text>
+  
+  <rect x="40" y="50" width="180" height="48" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="130" y="70" text-anchor="middle" font-size="13" fill="#1a1a1a">FSCUT2000C</text>
+  <text x="130" y="88" text-anchor="middle" font-size="11" fill="#555">Board · low/mid power</text>
+  <rect x="250" y="50" width="180" height="48" rx="8" fill="#e8f0fe" stroke="#4285f4"/>
+  <text x="340" y="70" text-anchor="middle" font-size="13">FSCUT2000E/4000E</text>
+  <text x="340" y="88" text-anchor="middle" font-size="11" fill="#555">Bus · low/mid power</text>
+  <rect x="460" y="50" width="180" height="48" rx="8" fill="#e8f0fe" stroke="#4285f4"/>
+  <text x="550" y="70" text-anchor="middle" font-size="13">FSCUT6000</text>
+  <text x="550" y="88" text-anchor="middle" font-size="11" fill="#555">Bus · 6 kW+</text>
+  <rect x="40" y="120" width="180" height="48" rx="8" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="130" y="140" text-anchor="middle" font-size="13">CypCut</text>
+  <text x="130" y="158" text-anchor="middle" font-size="11" fill="#555">With 2000C</text>
+  <rect x="250" y="120" width="180" height="48" rx="8" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="340" y="140" text-anchor="middle" font-size="13">CypCutE</text>
+  <text x="340" y="158" text-anchor="middle" font-size="11" fill="#555">With 2000E/4000E</text>
+  <rect x="460" y="120" width="180" height="48" rx="8" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="550" y="140" text-anchor="middle" font-size="13">CypCutPro</text>
+  <text x="550" y="158" text-anchor="middle" font-size="11" fill="#555">With 6000</text>
+  <path d="M130 98 L130 120 M340 98 L340 120 M550 98 L550 120" stroke="#666" stroke-width="1" marker-end="url(#a)"/>
+  <rect x="250" y="200" width="180" height="48" rx="8" fill="#e8f0fe" stroke="#4285f4"/>
+  <text x="340" y="220" text-anchor="middle" font-size="13">FSCUT8000 series</text>
+  <text x="340" y="238" text-anchor="middle" font-size="11" fill="#555">Bus · 8 kW+</text>
+  <rect x="250" y="270" width="180" height="48" rx="8" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="340" y="290" text-anchor="middle" font-size="13">HypCut</text>
+  <text x="340" y="308" text-anchor="middle" font-size="11" fill="#555">With 8000</text>
+  <path d="M340 248 L340 270" stroke="#666" stroke-width="1"/>
+  <rect x="460" y="200" width="180" height="48" rx="8" fill="#e6f4ea" stroke="#34a853"/>
+  <text x="550" y="220" text-anchor="middle" font-size="13">CypNest</text>
+  <text x="550" y="238" text-anchor="middle" font-size="11" fill="#555">Standalone nesting SW</text>
+  <text x="40" y="360" font-size="12" fill="#444">Teaching tip: identify controller first, then software name; nesting ≠ motion control.</text>
+  <defs><marker id="a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#666"/></marker></defs>
+
+</svg>

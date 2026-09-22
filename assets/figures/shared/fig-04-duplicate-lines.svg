@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图4 重复线与处理（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <text x="40" y="55" font-size="12">两根完全重合的直线（重复线）</text>
+  <line x1="60" y1="100" x2="300" y2="100" stroke="#1a73e8" stroke-width="4" opacity="0.5"/>
+  <line x1="60" y1="104" x2="300" y2="104" stroke="#d93025" stroke-width="3" opacity="0.7"/>
+  <text x="180" y="90" text-anchor="middle" font-size="11">蓝线与红线几乎重合 = 重复</text>
+  <text x="40" y="180" font-size="12">后果：同一切割路径切两遍，烧角、尺寸变大、时间翻倍。</text>
+  <text x="40" y="215" font-size="12">处理：导入优化“去重复线”，或手动删除一根；保留原始备份再优化。</text>
+  <rect x="40" y="250" width="600" height="60" rx="8" fill="#fff8e1" stroke="#f9ab00"/>
+  <text x="60" y="275" font-size="12" fill="#5f4b00">注意：合并相连线 ≠ 去重复线。前者接断点，后者删重叠。</text>
+  <text x="60" y="295" font-size="12" fill="#5f4b00">微小图元被误删时：先备份原图，对照软件“删除不可见/微小图”阈值定义后再调，勿凭直觉。</text>
+
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <rect width="680" height="420" fill="#fafafa"/>
+  <text x="40" y="28" font-family="-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="500" fill="#222">图10 浮动坐标与工件坐标（示意）</text>
+  <text x="640" y="28" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11" fill="#888">示意 · 非软件截图</text>
+  
+  <line x1="80" y1="280" x2="600" y2="280" stroke="#666" stroke-width="1.5"/>
+  <line x1="80" y1="280" x2="80" y2="60" stroke="#666" stroke-width="1.5"/>
+  <text x="610" y="285" font-size="11">X</text>
+  <text x="70" y="55" font-size="11">Y</text>
+  <circle cx="80" cy="280" r="5" fill="#1a73e8"/>
+  <text x="90" y="300" font-size="11" fill="#1a73e8">工件坐标原点（床身固定参考）</text>
+  <rect x="250" y="120" width="180" height="100" fill="none" stroke="#0d904f" stroke-width="2"/>
+  <circle cx="250" cy="220" r="5" fill="#0d904f"/>
+  <text x="260" y="245" font-size="11" fill="#0d904f">浮动坐标：零点=切割头当前位置</text>
+  <text x="40" y="350" font-size="12">浮动坐标便于“就地对刀/对当前图形”；工件坐标便于固定基准批量加工。</text>
+  <text x="40" y="375" font-size="11" fill="#888">概念示意，具体选项名因软件版本而异</text>
+
+</svg>
